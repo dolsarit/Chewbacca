@@ -1,0 +1,8 @@
+Keystore name: "debug.keystore"
+Keystore password: "android"
+Key alias: "androiddebugkey"
+Key password: "android"
+CN: "CN=Android Debug,O=Android,C=US"
+
+Google Maps API Key: 0HpVlXFsQwyHbtxqrBKKgJaPkT1dOVt9dyNgZHQ
+Key MD5: 39:33:30:F9:49:B0:33:77:4F:82:EE:67:32:6E:44:76
