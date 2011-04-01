@@ -1,0 +1,7 @@
+.classpath
+.project
+*.apk
+*.class
+*.ap_
+*.dex
+R.java
