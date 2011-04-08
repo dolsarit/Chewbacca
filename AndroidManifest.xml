@@ -16,7 +16,9 @@
         </activity>
         
         <activity android:name=".SearchActivity"/>
-
+		<activity android:name=".BakerInfo"/>
+		<activity android:name=".BuildingsRoomsActivity"/>
+		<activity android:name=".DirectionsMainActivity"/>
     </application>
     
     <uses-permission android:name="android.permission.INTERNET" />
