@@ -2,4 +2,20 @@
 <resources>
     <string name="hello">Hello World, Map!</string>
     <string name="app_name">WalkyScotty</string>
+
+
+
+	<!-- Info Pages -->
+    <string name="BakerHall">Baker Hall</string>
+    <string name="BakerDes">Baker Hall was one of the first buildings built on campus. It is structure is very unique
+							in that it is connected to Porter Hall and it is sloped. It is one of the largest and most
+							noticeable buildings on campus, created by the first dean of the College of Fine Arts(CFA), Henry Hornbostel.
+							Baker Hall is home to College of Humanities and Social Sciences (HSS), which is the second largest
+							school on campus with more than 60 majors and minors offered. </string>
+    <string name="directions_btn">Directions</string>
+    <string name="rooms_btn">Rooms</string>
+    <string name="nearby_btn">Nearby</string>
+    
+    
+    
 </resources>

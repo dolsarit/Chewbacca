@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+  	<!-- Style of Title (Info Page) -->
+  	<style name="myText" parent="@android:style/TextAppearance.Large">
+  		<item name="android:layout_width">wrap_content</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:textSize">20sp</item>
+    	<item name="android:typeface">sans</item>
+  	</style>
+  	
+  	
+	<!-- Style of regular Buttons -->
+  	<style name="myButton" parent="@android:style/Widget.Button">
+  		<item name="android:textSize">18sp</item>
+  		<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:layout_gravity">center</item>
+    	<item name="android:layout_weight">1</item>
+  	</style>
+
+	<!-- Style of Back Buttons -->
+  	<style name="backButton" parent="@android:style/Widget.Button">
+  		<item name="android:layout_width">wrap_content</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:layout_gravity">center</item>
+    	<item name="android:layout_weight">1</item>
+    	<item name="android:background">@drawable/arrowleft</item>
+  	</style>
+	
+	<!-- Style of Next Buttons -->
+  	<style name="nextButton" parent="@android:style/Widget.Button">
+  		<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:layout_gravity">center</item>
+    	<item name="android:layout_weight">1</item>
+    	<item name="android:background">@drawable/arrowright</item>
+    	
+  	</style>
+  	
+  	<!-- Style of Map Buttons -->
+  	<style name="mapButton" parent="@android:style/Widget.Button">
+  		<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:layout_gravity">center</item>
+    	<item name="android:layout_weight">1</item>
+    	<item name="android:background">@drawable/map</item>
+  	</style>
+  	
+  	<!-- Style of Search Buttons -->
+  	<style name="searchButton" parent="@android:style/Widget.Button">
+  		<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:layout_gravity">center</item>
+    	<item name="android:layout_weight">1</item>
+    	<item name="android:background">@drawable/search</item>
+  	</style>
+  	
+  	
+  	<!-- Style of LinearLayout for Buttons -->
+	<style name="myLLayout_Buttons">
+      	<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">fill_parent</item>
+    	<item name="android:orientation">horizontal</item>
+	</style>
+	
+	<!-- Style of LinearLayout for Navigation Buttons -->
+	<style name="myLLayout_NavigationButtons">
+      	<item name="android:layout_width">wrap_content</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:orientation">horizontal</item>
+	</style>
+	
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:orientation="vertical" >
+  	
+  	<TextView
+  	android:id="@+id/BakerHallText"
+  	style="@style/myText" />
+ 	
+  	<ImageView
+  	android:id="@+id/BakerHallPhoto"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:paddingLeft="60dp" />
+  	
+  	<ScrollView
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content" >
+  	
+  	<TextView
+  	android:id="@+id/BakerHallDes"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content" />
+   	
+   	</ScrollView>
+   	
+   	
+   	<LinearLayout 
+  	style="@style/myLLayout_Buttons" >
+  		<Button 
+    		android:id="@+id/BakerHall_Diriection_Button"
+    		android:text="@string/directions_btn"
+    		style="@style/myButton" />
+    	<Button 
+    		android:id="@+id/BakerHall_Diriection_Button"
+    		android:text="@string/rooms_btn"
+    		style="@style/myButton" />
+  		<Button 
+    		android:id="@+id/BakerHall_Diriection_Button"
+    		android:text="@string/nearby_btn"
+    		style="@style/myButton" />	
+  	</LinearLayout>
+  	
+  	
+  	<LinearLayout 
+  	android:id="@+id/navigateLayout"
+    style="@style/myLLayout_NavigationButtons" >
+  		<Button 
+    		android:id="@+id/BakerHall_Back_Button"
+    		style="@style/backButton"/>
+    	<Button 
+    		android:id="@+id/BakerHall_Next_Button"
+    		style="@style/nextButton"/>
+  		<Button 
+    		android:id="@+id/BakerHall_Map_Button"
+    		style="@style/mapButton"/>	
+    	<Button 
+    		android:id="@+id/BakerHall_Map_Button"
+    		style="@style/searchButton"/>
+  	</LinearLayout>
+ 	
+  </LinearLayout>
+
