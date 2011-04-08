@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.maps.MapView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mapview"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    >
+<com.google.android.maps.MapView
+    android:id="@+id/mapview"
+    android:layout_width="fill_parent"
+    android:layout_height="400dp"
     android:clickable="true"
     android:apiKey="0HpVlXFsQwyHbtxqrBKKgJaPkT1dOVt9dyNgZHQ"
 />
+<LinearLayout
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+<Button
+	android:id="@+id/back_button"
+	android:clickable="true"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Back"
+	/>	
+<Button
+	android:id="@+id/forward_button"
+	android:clickable="true"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Forward"
+	/>	
+<Button
+	android:id="@+id/search_button"
+	android:clickable="true"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Search"
+	/>	
+<Button
+	android:id="@+id/map_button"
+	android:clickable="true"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Map"
+	/>	
+</LinearLayout>
+</LinearLayout>

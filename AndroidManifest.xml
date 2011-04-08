@@ -7,13 +7,15 @@
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
 		<uses-library android:name="com.google.android.maps" />
-        <activity android:name=".Map"
+        <activity android:name=".MapMainActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity android:name=".SearchActivity"/>
 
     </application>
     
