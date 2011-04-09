@@ -179,7 +179,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public ArrayList<Room> getRooms(){
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
-		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = rooms._id)", new String[]{"rooms._id", "rooms.name","rooms.description","rooms.image"}, null, null, null, null, "rooms.name", null);
+		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", new String[]{"rooms._id", "rooms.name","rooms.description","rooms.image"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -208,8 +208,8 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public ArrayList<Room> getRooms(Building building){
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
-		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = rooms._id)", 
-				new String[]{"rooms._id", "rooms.name","rooms.description","rooms.image"}, "rooms.building_id = " + building.getId(), null, null, null, "rooms.name", null);
+		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", 
+				new String[]{"rooms._id", "rooms.name","rooms.description","rooms.image"}, "rooms.building_id = " + building.getId(), null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -239,4 +239,145 @@ public class DBAdapter extends SQLiteOpenHelper {
 		return null;
 	}
 	
+	public ArrayList<Restaurant> getRestaurants(){
+		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+		
+		Cursor c = myDataBase.query(true, "restaurants JOIN locations ON (restaurants.location_id = locations._id)", 
+				new String[]{"locations._id", "locations.name","locations.description","locations.image",
+				"restaurants.hours", "restaurants.menu"}, null, null, null, null, "locations.name", null);
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("_id");
+		int nameCol = c.getColumnIndex("name");
+		int descCol = c.getColumnIndex("description");
+		int imgCol = c.getColumnIndex("image");
+		int hourCol = c.getColumnIndex("hours");
+		int menuCol = c.getColumnIndex("menu");
+		
+		if(c!=null){
+			if(c.isFirst()){
+				do{
+					int id = c.getInt(idCol);
+					String name = c.getString(nameCol);
+					String desc = c.getString(descCol);
+					String img = c.getString(imgCol);
+					String hours = c.getString(hourCol);
+					String menu = c.getString(menuCol);
+					
+					restaurants.add(new Restaurant(id, name, desc, img, hours, menu));
+				}
+				while(c.moveToNext());
+			}
+		}
+		
+		return restaurants;
+	}
+	
+	public ArrayList<Service> getServices(){
+		ArrayList<Service> services = new ArrayList<Service>();
+		
+		Cursor c = myDataBase.query(true, "services JOIN locations ON (services.location_id = locations._id)", 
+				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("_id");
+		int nameCol = c.getColumnIndex("name");
+		int descCol = c.getColumnIndex("description");
+		int imgCol = c.getColumnIndex("image");
+		
+		if(c!=null){
+			if(c.isFirst()){
+				do{
+					int id = c.getInt(idCol);
+					String name = c.getString(nameCol);
+					String desc = c.getString(descCol);
+					String img = c.getString(imgCol);
+					
+					services.add(new Service(id, name, desc, img));
+				}
+				while(c.moveToNext());
+			}
+		}
+		
+		return services;
+	}
+	
+	public ArrayList<Shuttle> getShuttles(){
+		ArrayList<Shuttle> shuttles = new ArrayList<Shuttle>();
+		
+		Cursor c = myDataBase.query(true, "shuttles JOIN locations ON (shuttles.location_id = locations._id)", 
+				new String[]{"locations._id", "locations.name","locations.description","locations.image",
+				"shuttles.hours", "shuttles.stops"}, null, null, null, null, "locations.name", null);
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("_id");
+		int nameCol = c.getColumnIndex("name");
+		int descCol = c.getColumnIndex("description");
+		int imgCol = c.getColumnIndex("image");
+		int hourCol = c.getColumnIndex("hours");
+		int stopCol = c.getColumnIndex("stop");
+		
+		if(c!=null){
+			if(c.isFirst()){
+				do{
+					int id = c.getInt(idCol);
+					String name = c.getString(nameCol);
+					String desc = c.getString(descCol);
+					String img = c.getString(imgCol);
+					String stops = c.getString(stopCol);
+					String hours = c.getString(hourCol);
+					
+					shuttles.add(new Shuttle(id, name, desc, img, stops, hours));
+				}
+				while(c.moveToNext());
+			}
+		}
+		
+		return shuttles;
+	}
+	
+	public ArrayList<Escort> getEscorts(){
+		ArrayList<Escort> escorts = new ArrayList<Escort>();
+		
+		Cursor c = myDataBase.query(true, "escorts JOIN locations ON (escorts.location_id = locations._id)", 
+				new String[]{"locations._id", "locations.name","locations.description","locations.image",
+				"escorts.hours", "escorts.stops"}, null, null, null, null, "locations.name", null);
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("_id");
+		int nameCol = c.getColumnIndex("name");
+		int descCol = c.getColumnIndex("description");
+		int imgCol = c.getColumnIndex("image");
+		int hourCol = c.getColumnIndex("hours");
+		int stopCol = c.getColumnIndex("stop");
+		
+		if(c!=null){
+			if(c.isFirst()){
+				do{
+					int id = c.getInt(idCol);
+					String name = c.getString(nameCol);
+					String desc = c.getString(descCol);
+					String img = c.getString(imgCol);
+					String stops = c.getString(stopCol);
+					String hours = c.getString(hourCol);
+					
+					escorts.add(new Escort(id, name, desc, img, stops, hours));
+				}
+				while(c.moveToNext());
+			}
+		}
+		
+		return escorts;
+	}
+	
+	public DirectionList getDirections(Location from, Location to){
+		DirectionList directions;
+		
+		return null;
+	
+	}
 }

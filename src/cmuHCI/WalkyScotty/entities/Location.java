@@ -10,7 +10,7 @@ public class Location {
 		id = ident;
 		name = nm;
 		description = desc;
-		image = img;
+		img = image;
 	}
 	
 	public int getId() {
