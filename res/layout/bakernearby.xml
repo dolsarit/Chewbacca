@@ -31,17 +31,14 @@
   	android:layout_weight="0"
     style="@style/myLLayout_NavigationButtons" >
   		<Button 
-    		android:id="@+id/BakerHall_Back_Button"
-    		style="@style/backButton"/>
-    	<Button 
-    		android:id="@+id/BakerHall_Next_Button"
-    		style="@style/nextButton"/>
-  		<Button 
-    		android:id="@+id/BakerHall_Map_Button"
+    		android:id="@+id/BakerNearby_Map_Button"
     		style="@style/mapButton"/>	
     	<Button 
-    		android:id="@+id/BakerHall_Map_Button"
+    		android:id="@+id/BakerNearby_Search_Button"
     		style="@style/searchButton"/>
+    	<Button
+    		android:id="@+id/BakerNearby_Directions_Button"
+    		style="@style/directionsButton"/>
   	</LinearLayout>
 
  	</LinearLayout>

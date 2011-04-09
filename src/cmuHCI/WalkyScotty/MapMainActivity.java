@@ -21,16 +21,28 @@ public class MapMainActivity extends MapActivity {
         MapView mapView = (MapView) findViewById(R.id.mapview);
         mapView.setBuiltInZoomControls(true);
         
-        Button searchButton = (Button) findViewById(R.id.search_button);
+        Button searchButton = (Button) findViewById(R.id.Map_search_button);
         
         searchButton.setOnClickListener(new OnClickListener() {
 
 			@Override
-			public void onClick(View arg0) {
+			public void onClick(View view) {
 				MapMainActivity.this.startActivity(new Intent(MapMainActivity.this, SearchActivity.class));
 			}
         	
         });
+        
+        Button directionsButton = (Button) findViewById(R.id.Map_directions_button);
+        
+        directionsButton.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View view) {
+        		MapMainActivity.this.startActivity(new Intent(MapMainActivity.this, DirectionsMainActivity.class));
+        	}
+        });
+        
+        // Do Nothing for Map button (obviously)
         
 		DBAdapter adp = new DBAdapter(this);
 		try {

@@ -17,20 +17,16 @@
 	android:layout_weight="0"
 	>
 <Button
-	android:id="@+id/back_button"
-	style="@style/backButton"
-	/>	
-<Button
-	android:id="@+id/forward_button"
-	style="@style/nextButton"
-	/>	
-<Button
-	android:id="@+id/search_button"
+	android:id="@+id/Map_search_button"
 	style="@style/searchButton"
 	/>	
 <Button
-	android:id="@+id/map_button"
+	android:id="@+id/Map_map_button"
 	style="@style/mapButton"
 	/>	
+<Button
+	android:id="@+id/Map_directions_button"
+	style="@style/directionsButton"
+	/>
 </LinearLayout>
 </LinearLayout>

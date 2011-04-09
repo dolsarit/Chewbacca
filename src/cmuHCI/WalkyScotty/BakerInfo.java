@@ -9,7 +9,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class BakerInfo extends Activity{
     /** Called when the activity is first created. */
@@ -50,8 +49,7 @@ public class BakerInfo extends Activity{
         rooms.setOnClickListener(new OnClickListener() {
 
 			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+			public void onClick(View view) {
 				BakerInfo.this.startActivity(new Intent(BakerInfo.this, BuildingsRoomsActivity.class));
 			}
         	
@@ -62,11 +60,40 @@ public class BakerInfo extends Activity{
         nearby.setOnClickListener(new OnClickListener() {
 
 			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				Toast.makeText(BakerInfo.this, "Unimplemented", Toast.LENGTH_LONG).show();
+			public void onClick(View view) {
+				BakerInfo.this.startActivity(new Intent(BakerInfo.this, BakerNearby.class));
 			}
         	
+        });
+        
+        Button directionsButton = (Button) findViewById(R.id.BakerHall_Directions_Button);
+        
+        directionsButton.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View view) {
+        		BakerInfo.this.startActivity(new Intent(BakerInfo.this, DirectionsMainActivity.class));
+        	}
+        });
+        
+        Button searchButton = (Button) findViewById(R.id.BakerHall_Search_Button);
+        
+        searchButton.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View view) {
+        		BakerInfo.this.startActivity(new Intent(BakerInfo.this, SearchActivity.class));
+        	}
+        });
+        
+        Button mapButton = (Button) findViewById(R.id.BakerHall_Map_Button);
+        
+        mapButton.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View view) {
+        		BakerInfo.this.startActivity(new Intent(BakerInfo.this, MapMainActivity.class));
+        	}
         });
     }
 
