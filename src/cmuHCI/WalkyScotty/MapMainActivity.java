@@ -1,5 +1,7 @@
 package cmuHCI.WalkyScotty;
 
+import java.io.IOException;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +31,19 @@ public class MapMainActivity extends MapActivity {
 			}
         	
         });
+        
+		DBAdapter adp = new DBAdapter(this);
+		try {
+			adp.createDataBase();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		adp.openDataBase();
+		
+		adp.getBuildings(); //Spits out an arraylist of buildings
+		
+		adp.close();
     }
 
 	@Override
