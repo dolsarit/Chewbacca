@@ -16,6 +16,7 @@
     <string name="rooms_btn">Rooms</string>
     <string name="nearby_btn">Nearby</string>
     
-    
+    <!-- Nearby Page -->
+	<string name="WhatNearby">What\'s Nearby</string>
     
 </resources>

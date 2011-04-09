@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:orientation="vertical" >
+  	
+  	<TextView
+  	android:id="@+id/NearbyText"
+  	android:layout_weight="0"
+  	style="@style/myText" />
+  	
+  	<LinearLayout
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:orientation="vertical" >
+  	
+  	<GridView
+    android:id="@+id/gridview"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:columnWidth="90dp"
+    android:numColumns="2"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp"
+    android:stretchMode="columnWidth"
+    android:gravity="center" />
+  	
+  	<LinearLayout 
+  	android:id="@+id/navigateLayout"
+  	android:layout_weight="0"
+    style="@style/myLLayout_NavigationButtons" >
+  		<Button 
+    		android:id="@+id/BakerHall_Back_Button"
+    		style="@style/backButton"/>
+    	<Button 
+    		android:id="@+id/BakerHall_Next_Button"
+    		style="@style/nextButton"/>
+  		<Button 
+    		android:id="@+id/BakerHall_Map_Button"
+    		style="@style/mapButton"/>	
+    	<Button 
+    		android:id="@+id/BakerHall_Map_Button"
+    		style="@style/searchButton"/>
+  	</LinearLayout>
+
+ 	</LinearLayout>
+  </LinearLayout>
+
