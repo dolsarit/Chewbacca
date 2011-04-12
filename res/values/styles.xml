@@ -1,92 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+	<color name="activity_bg_color">#ffffff</color>
+	<color name="text_color">#000000</color>
 
-  	<!-- Style of Title (Info Page) -->
-  	<style name="myText" parent="@android:style/TextAppearance.Large">
-  		<item name="android:layout_width">fill_parent</item>
-    	<item name="android:layout_height">wrap_content</item>
-    	<item name="android:gravity">center</item>
-    	<item name="android:textSize">20sp</item>
-    	<item name="android:typeface">sans</item>
-  	</style>
-  	
-  	
+
+	<style name="WSTheme" parent="android:Theme.Light">
+		<item name="android:windowBackground">@color/activity_bg_color</item>
+		<item name="android:colorBackground">@color/activity_bg_color</item>
+		<item name="android:textColor">@color/text_color</item>
+	</style>
+
+	<!-- Style of Title (Info Page) -->
+	<style name="title" parent="@android:style/TextAppearance.Large">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">center</item>
+		<item name="android:textSize">20sp</item>
+		<item name="android:typeface">sans</item>
+	</style>
+
+	<style name="subtitle" parent="@android:style/TextAppearance.Large">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">center</item>
+		<item name="android:textSize">16sp</item>
+		<item name="android:typeface">sans</item>
+	</style>
+
+	<style name="label" parent="@android:style/TextAppearance.Large">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">left</item>
+		<item name="android:textSize">16sp</item>
+		<item name="android:typeface">sans</item>
+	</style>
+
 	<!-- Style of regular Buttons -->
-  	<style name="myButton" parent="@android:style/Widget.Button">
-  		<item name="android:textSize">18sp</item>
-  		<item name="android:layout_width">fill_parent</item>
-    	<item name="android:layout_height">wrap_content</item>
-    	<item name="android:layout_gravity">center</item>
-    	<item name="android:layout_weight">1</item>
-  	</style>
+	<style name="myButton" parent="@android:style/Widget.Button">
+		<item name="android:textSize">18sp</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_weight">1</item>
+	</style>
 
 	<!-- Style of Back Buttons -->
-  	<style name="backButton" parent="@android:style/Widget.Button">
-  		<item name="android:layout_width">wrap_content</item>
-    	<item name="android:layout_height">wrap_content</item>
-    	<item name="android:layout_gravity">center</item>
-    	<item name="android:layout_weight">1</item>
-    	<item name="android:background">@drawable/arrowleft</item>
-  	</style>
-	
-	<!-- Style of Next Buttons -->
-  	<style name="nextButton" parent="@android:style/Widget.Button">
-  		<item name="android:layout_width">fill_parent</item>
-    	<item name="android:layout_height">wrap_content</item>
-    	<item name="android:layout_gravity">center</item>
-    	<item name="android:layout_weight">1</item>
-    	<item name="android:background">@drawable/arrowright</item>
-    	
-  	</style>
-  	
-  	<!-- Style of Map Buttons -->
-  	<style name="mapButton" parent="@android:style/Widget.Button">
-  		<item name="android:layout_width">fill_parent</item>
-    	<item name="android:layout_height">wrap_content</item>
-    	<item name="android:layout_gravity">center</item>
-    	<item name="android:layout_weight">1</item>
-    	<item name="android:background">@drawable/map</item>
-  	</style>
-  	
-  	<!-- Style of Search Buttons -->
-  	<style name="searchButton" parent="@android:style/Widget.Button">
-  		<item name="android:layout_width">fill_parent</item>
-    	<item name="android:layout_height">wrap_content</item>
-    	<item name="android:layout_gravity">center</item>
-    	<item name="android:layout_weight">1</item>
-    	<item name="android:background">@drawable/search</item>
-  	</style>
-  	
-  	<style name="directionsButton" parent="@android:style/Widget.Button">
-  		<item name="android:layout_width">fill_parent</item>
-  		<item name="android:layout_height">wrap_content</item>
-  		<item name="android:layout_gravity">center</item>
-  		<item name="android:layout_weight">1</item>
-  		<item name="android:background">@drawable/directions</item>
-  	</style>
-  	
-  	<style name="helpButton" parent="@android:style/Widget.Button">
-  		<item name="android:layout_width">fill_parent</item>
-  		<item name="android:layout_height">wrap_content</item>
-  		<item name="android:layout_gravity">center</item>
-  		<item name="android:layout_weight">1</item>
-  		<item name="android:background">@drawable/help</item>
-  	</style>
-  	
-  	
-  	<!-- Style of LinearLayout for Buttons -->
-	<style name="myLLayout_Buttons">
-      	<item name="android:layout_width">fill_parent</item>
-    	<item name="android:layout_height">fill_parent</item>
-    	<item name="android:orientation">horizontal</item>
+	<style name="backButton" parent="@android:style/Widget.Button">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:background">@drawable/arrowleft</item>
 	</style>
-	
+
+	<!-- Style of Next Buttons -->
+	<style name="nextButton" parent="@android:style/Widget.Button">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:background">@drawable/arrowright</item>
+
+	</style>
+
+	<!-- Style of Map Buttons -->
+	<style name="mapButton" parent="@android:style/Widget.Button">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:background">@drawable/map</item>
+	</style>
+
+	<!-- Style of Search Buttons -->
+	<style name="searchButton" parent="@android:style/Widget.Button">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:background">@drawable/search</item>
+	</style>
+
+	<style name="directionsButton" parent="@android:style/Widget.Button">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:background">@drawable/directions</item>
+	</style>
+
+	<style name="helpButton" parent="@android:style/Widget.Button">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:background">@drawable/help</item>
+	</style>
+
+
+	<!-- Style of LinearLayout for Buttons -->
+	<style name="myLLayout_Buttons">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">fill_parent</item>
+		<item name="android:orientation">horizontal</item>
+	</style>
+
 	<!-- Style of LinearLayout for Navigation Buttons -->
 	<style name="myLLayout_NavigationButtons">
-      	<item name="android:layout_width">wrap_content</item>
-    	<item name="android:layout_height">wrap_content</item>
-    	<item name="android:orientation">horizontal</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:orientation">horizontal</item>
+		<item name="android:layout_weight">0</item>
 	</style>
-	
+
 </resources>

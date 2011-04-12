@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="cmuHCI.WalkyScotty"
-      android:versionCode="10"
-      android:versionName="1.0">
+	package="cmuHCI.WalkyScotty" android:versionCode="10"
+	android:versionName="1.0">
 
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+	<application android:icon="@drawable/icon" android:label="@string/app_name"
+		android:theme="@style/WSTheme">
 		<uses-library android:name="com.google.android.maps" />
-        <activity android:name=".MapMainActivity"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        
-        <activity android:name=".SearchActivity"/>
-		<activity android:name=".BakerInfo"/>
-		<activity android:name=".BuildingsRoomsActivity"/>
-		<activity android:name=".DirectionsMainActivity"/>
-		<activity android:name=".BakerNearby"/>
-		<activity android:name=".HelpActivity"/> 
-    </application>
-    
-    <uses-permission android:name="android.permission.INTERNET" />
+		<activity android:name=".MapMainActivity" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name=".SearchActivity" />
+		<activity android:name=".BakerInfo" />
+		<activity android:name=".BuildingsRoomsActivity" />
+		<activity android:name=".DirectionsMainActivity" />
+		<activity android:name=".BakerNearby" />
+		<activity android:name=".HelpActivity" />
+	</application>
+
+	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>

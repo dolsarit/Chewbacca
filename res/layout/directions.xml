@@ -4,16 +4,44 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
   android:orientation="vertical">
-    <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Directions"></TextView>
-    <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Directions"></TextView>
-    <TextView android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="To: "></TextView>
-	<AutoCompleteTextView android:layout_height="wrap_content" android:id="@+id/autoCompleteTextView1" android:text="AutoCompleteTextView" android:layout_width="match_parent"></AutoCompleteTextView>
+    <TextView
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" 
+    	android:text="Directions"
+    	style="@style/title" />
+    <TextView
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" 
+    	android:text="Directions"
+    	style="@style/subtitle" />
+    <TextView 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" 
+    	android:text="To:"
+    	style="@style/label" />
+	<AutoCompleteTextView 
+		android:layout_height="wrap_content" 
+		android:id="@+id/autoCompleteTextView1" 
+		android:text="AutoCompleteTextView" 
+		android:layout_width="match_parent" />
 	<Button
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="Search" />
-	<TextView android:text="From:" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-	<AutoCompleteTextView android:layout_height="wrap_content" android:id="@+id/autoCompleteTextView2" android:text="AutoCompleteTextView" android:layout_width="match_parent"></AutoCompleteTextView>
-	<Button android:text="Search" android:layout_height="wrap_content" android:id="@+id/button1" android:layout_width="wrap_content"></Button>
+	<TextView 
+		android:text="From:" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		style="@style/label" />
+	<AutoCompleteTextView 
+		android:layout_height="wrap_content" 
+		android:id="@+id/autoCompleteTextView2" 
+		android:text="AutoCompleteTextView" 
+		android:layout_width="match_parent" />
+	<Button 
+		android:text="Search" 
+		android:layout_height="wrap_content" 
+		android:id="@+id/button1"
+		android:layout_width="wrap_content" />
 </LinearLayout>
 

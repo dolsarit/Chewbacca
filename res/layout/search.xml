@@ -7,12 +7,18 @@
 	<TextView
   		android:layout_width="fill_parent"
   		android:layout_height="wrap_content"
-  		android:text="Search" />
-	<TextView android:id="@+id/textView1" android:layout_height="wrap_content" android:text="Search" android:layout_width="fill_parent"></TextView>
+  		android:text="Search"
+  		style="@style/title" />
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Search"
+		android:layout_width="fill_parent"
+		style="@style/subtitle" />
 	<TextView
   		android:layout_width="fill_parent"
   		android:layout_height="wrap_content"
-  		android:text="Quick Search" />
+  		android:text="Quick Search"
+  		style="@style/label" />
 	<AutoCompleteTextView
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
@@ -25,7 +31,8 @@
 	<TextView
   		android:layout_width="fill_parent"
   		android:layout_height="wrap_content"
-  		android:text="By Category" />
+  		android:text="By Category"
+  		style="@style/label" />
   	<ListView
   		android:layout_width="fill_parent"
   		android:layout_height="fill_parent"
