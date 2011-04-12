@@ -42,6 +42,16 @@ public class MapMainActivity extends MapActivity {
         	}
         });
         
+        Button helpButton = (Button) findViewById(R.id.Map_help_button);
+        
+        helpButton.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View view) {
+        		MapMainActivity.this.startActivity(new Intent(MapMainActivity.this, HelpActivity.class));
+        	}
+        });
+        
         // Do Nothing for Map button (obviously)
         
 		DBAdapter adp = new DBAdapter(this);

@@ -20,6 +20,7 @@
 		<activity android:name=".BuildingsRoomsActivity"/>
 		<activity android:name=".DirectionsMainActivity"/>
 		<activity android:name=".BakerNearby"/>
+		<activity android:name=".HelpActivity"/> 
     </application>
     
     <uses-permission android:name="android.permission.INTERNET" />
