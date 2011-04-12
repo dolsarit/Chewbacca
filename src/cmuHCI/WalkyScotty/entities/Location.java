@@ -28,6 +28,5 @@ public class Location {
 	public String getImg() {
 		return img;
 	}
-
 	
 }

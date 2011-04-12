@@ -1,5 +1,10 @@
 package cmuHCI.WalkyScotty;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import cmuHCI.WalkyScotty.entities.*;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,13 +22,7 @@ public class SearchActivity extends Activity {
 
 	// TODO: Create a custom cursor to make this less painful
 	private final String[] PLACES = {"Buildings", "Food Places", "Rooms", "Services", "Other"};
-	private final String[][] SUBPLACES = {
-			{ "Baker", "GHC", "Tepper"},
-			{"Si Senor"},
-			{"Baker Hall Clusters", "Giant Eagle Auditorium"},
-			{"Escor Services"},
-			{"Merson Courtyard"}
-	};
+	private String[][] SUBPLACES = new String[5][10];
 	
 	// List of items to give to the autocomplete text box
 	
@@ -40,6 +39,8 @@ public class SearchActivity extends Activity {
 		setContentView(R.layout.search);
 		
 		// Set up browse menus
+		
+		buildSubCategories();
 		
 		ListView blv = (ListView) findViewById(R.id.browse_list);
 		blv.setAdapter(new NestedListAdapter(this, PLACES, SUBPLACES));
@@ -84,5 +85,27 @@ public class SearchActivity extends Activity {
 		} else {
 			Toast.makeText(this, "Can't find anything corresponding to " + key, Toast.LENGTH_LONG).show();
 		}
+	}
+	
+	private void buildSubCategories(){
+		ArrayList<String> buildings = new ArrayList<String>();
+		DBAdapter adp = new DBAdapter(this);
+		try {
+			adp.createDataBase();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		adp.openDataBase();
+		
+		int i=0;
+		for(Building b:adp.getBuildings()){ //Spits out an arraylist of buildings
+			//buildings.add(b.getName());
+			SUBPLACES[0][i] = b.getName();
+			i++;
+		}
+		//SUBPLACES[0] = (String[]) buildings.toArray();
+		
+		adp.close();
 	}
 }

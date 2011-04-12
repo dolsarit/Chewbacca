@@ -20,7 +20,7 @@ public class NestedListAdapter extends BaseAdapter {
 	private int numItems;
 	private Set<LinearLayout> topLevelItems;
 	
-	public NestedListAdapter(Context context, final String[] topLevelItems, final String[][] subLevelItems) {
+	public NestedListAdapter(Context context, String[] topLevelItems, String[][] subLevelItems) {
 		if (topLevelItems.length != subLevelItems.length)
 			throw new RuntimeException("Invalid arguments to NestedListAdapter constructor.");
 		
