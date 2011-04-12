@@ -1,47 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
-  android:orientation="vertical">
-    <TextView
-    	android:layout_width="wrap_content" 
-    	android:layout_height="wrap_content" 
-    	android:text="Directions"
-    	style="@style/title" />
-    <TextView
-    	android:layout_width="wrap_content" 
-    	android:layout_height="wrap_content" 
-    	android:text="Directions"
-    	style="@style/subtitle" />
-    <TextView 
-    	android:layout_width="wrap_content" 
-    	android:layout_height="wrap_content" 
-    	android:text="To:"
-    	style="@style/label" />
-	<AutoCompleteTextView 
-		android:layout_height="wrap_content" 
-		android:id="@+id/autoCompleteTextView1" 
-		android:text="AutoCompleteTextView" 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Directions" />
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Directions" style="@style/title" />
+	<TextView android:text="From:" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" style="@style/label" />
+	<AutoCompleteTextView android:layout_height="wrap_content"
+		android:id="@+id/directions_from" android:layout_width="match_parent"
+
+		android:text="Baker Hall" />
+	<!-- android:editable="false" -->
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="To:" style="@style/label" />
+	<AutoCompleteTextView android:layout_height="wrap_content"
+		android:id="@+id/directions_to" android:text="Merson Courtyard"
+
 		android:layout_width="match_parent" />
-	<Button
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Search" />
-	<TextView 
-		android:text="From:" 
-		android:layout_width="wrap_content" 
-		android:layout_height="wrap_content"
-		style="@style/label" />
-	<AutoCompleteTextView 
-		android:layout_height="wrap_content" 
-		android:id="@+id/autoCompleteTextView2" 
-		android:text="AutoCompleteTextView" 
-		android:layout_width="match_parent" />
-	<Button 
-		android:text="Search" 
-		android:layout_height="wrap_content" 
-		android:id="@+id/button1"
-		android:layout_width="wrap_content" />
+	<!-- android:editable="false" -->
+	<Button android:text="Go" android:layout_height="wrap_content"
+		android:id="@+id/directions_go" android:layout_width="wrap_content" />
 </LinearLayout>
 

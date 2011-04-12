@@ -1,62 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  	android:layout_width="fill_parent"
-  	android:layout_height="wrap_content"
-  	android:orientation="vertical" >
-  	
-  	<TextView
-  	android:id="@+id/BakerHallText"
-  	style="@style/title" />
- 	
-  	<ImageView
-  	android:id="@+id/BakerHallPhoto"
-  	android:layout_width="wrap_content"
-  	android:layout_height="wrap_content"
-  	android:paddingLeft="60dp" />
-  	
-  	<ScrollView
-  	android:layout_width="fill_parent"
-  	android:layout_height="wrap_content"
-  	android:layout_weight="1" >
-  	
-  	<TextView
-  	android:id="@+id/BakerHallDes"
-  	android:layout_width="fill_parent"
-  	android:layout_height="wrap_content" />
-   	
-   	</ScrollView>
-   	
-   	
-   	<LinearLayout 
-  	style="@style/myLLayout_Buttons" >
-  		<Button 
-    		android:id="@+id/BakerHall_Direction_Button"
-    		android:text="@string/directions_btn"
-    		style="@style/myButton" />
-    	<Button 
-    		android:id="@+id/BakerHall_Rooms_Button"
-    		android:text="@string/rooms_btn"
-    		style="@style/myButton" />
-  		<Button 
-    		android:id="@+id/BakerHall_Nearby_Button"
-    		android:text="@string/nearby_btn"
-    		style="@style/myButton" />	
-  	</LinearLayout>
-  	
-  	
-  	<LinearLayout 
-  	android:id="@+id/navigateLayout"
-    style="@style/myLLayout_NavigationButtons" >
-  		<Button 
-    		android:id="@+id/BakerHall_Map_Button"
-    		style="@style/mapButton"/>	
-    	<Button 
-    		android:id="@+id/BakerHall_Search_Button"
-    		style="@style/searchButton"/>
-    	<Button
-    		android:id="@+id/BakerHall_Directions_Button"
-    		style="@style/directionsButton"/>
-  	</LinearLayout>
- 	
-  </LinearLayout>
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Buildings > Baker Hall" />
+
+	<TextView android:id="@+id/BakerHallText" style="@style/title" />
+
+	<ImageView android:id="@+id/BakerHallPhoto"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:paddingLeft="60dp" />
+
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_weight="1">
+
+		<TextView android:id="@+id/BakerHallDes"
+			android:layout_width="fill_parent" android:layout_height="wrap_content" />
+
+	</ScrollView>
+
+
+	<LinearLayout style="@style/myLLayout_Buttons">
+		<Button android:id="@+id/BakerHall_Direction_Button"
+			android:text="@string/directions_btn" style="@style/myButton" />
+		<Button android:id="@+id/BakerHall_Rooms_Button" android:text="@string/rooms_btn"
+			style="@style/myButton" />
+		<Button android:id="@+id/BakerHall_Nearby_Button" android:text="@string/nearby_btn"
+			style="@style/myButton" />
+	</LinearLayout>
+
+
+	<LinearLayout android:id="@+id/navigateLayout"
+		style="@style/myLLayout_NavigationButtons">
+		<Button android:id="@+id/BakerHall_Map_Button" style="@style/mapButton" />
+		<Button android:id="@+id/BakerHall_Search_Button" style="@style/searchButton" />
+		<Button android:id="@+id/BakerHall_Directions_Button" style="@style/directionsButton" />
+	</LinearLayout>
+
+</LinearLayout>
 

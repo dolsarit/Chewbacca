@@ -5,17 +5,20 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
-import cmuHCI.WalkyScotty.entities.*;
+import cmuHCI.WalkyScotty.entities.Building;
+import cmuHCI.WalkyScotty.entities.DirectionList;
+import cmuHCI.WalkyScotty.entities.Escort;
+import cmuHCI.WalkyScotty.entities.Location;
+import cmuHCI.WalkyScotty.entities.Restaurant;
+import cmuHCI.WalkyScotty.entities.Room;
+import cmuHCI.WalkyScotty.entities.Service;
+import cmuHCI.WalkyScotty.entities.Shuttle;
 
 public class DBAdapter extends SQLiteOpenHelper {
 
