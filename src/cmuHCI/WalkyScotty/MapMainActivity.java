@@ -63,7 +63,7 @@ public class MapMainActivity extends MapActivity {
 		}
 		adp.openDataBase();
 		
-		adp.getBuildings(); //Spits out an arraylist of buildings
+		adp.getRestaurants(); //Spits out an arraylist of buildings
 		
 		adp.close();
     }

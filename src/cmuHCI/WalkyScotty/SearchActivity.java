@@ -15,6 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,7 +23,13 @@ public class SearchActivity extends Activity {
 
 	// TODO: Create a custom cursor to make this less painful
 	private final String[] PLACES = {"Buildings", "Food Places", "Rooms", "Services", "Other"};
-	private String[][] SUBPLACES = new String[5][10];
+	private final String[][] SUBPLACES = {
+			{ "Baker", "GHC", "Tepper"},
+			{"Si Senor"},
+			{"Baker Hall Clusters", "Giant Eagle Auditorium"},
+			{"Escor Services"},
+			{"Merson Courtyard"}
+	};
 	
 	// List of items to give to the autocomplete text box
 	
@@ -40,7 +47,7 @@ public class SearchActivity extends Activity {
 		
 		// Set up browse menus
 		
-		buildSubCategories();
+		//buildSubCategories();
 		
 		ListView blv = (ListView) findViewById(R.id.browse_list);
 		blv.setAdapter(new NestedListAdapter(this, PLACES, SUBPLACES));

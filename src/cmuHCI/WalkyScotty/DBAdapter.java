@@ -374,6 +374,33 @@ public class DBAdapter extends SQLiteOpenHelper {
 		return escorts;
 	}
 	
+	public Location getLocation(String loc){
+		
+		Cursor c = myDataBase.query(true, "locations", 
+				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "" +
+						"locations.name = " + loc, null, null, null, "locations.name", null);
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("_id");
+		int nameCol = c.getColumnIndex("name");
+		int descCol = c.getColumnIndex("description");
+		int imgCol = c.getColumnIndex("image");
+		
+		if(c!=null){
+			if(c.isFirst()){
+				int id = c.getInt(idCol);
+				String name = c.getString(nameCol);
+				String desc = c.getString(descCol);
+				String img = c.getString(imgCol);
+				
+				return new Location(id, name, desc, img);
+			}
+		}
+		
+		return null;
+	}
+	
 	public DirectionList getDirections(Location from, Location to){
 		DirectionList directions;
 		
