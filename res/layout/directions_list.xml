@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<TextView android:layout_width="fill_parent" android:id="@+id/directions_list_breadcrumb"
+		android:layout_height="wrap_content" android:text="Directions > Baker Hall to Merson Courtyard" />
+
+	<TextView android:id="@+id/directions_list_title" style="@style/title"
+		android:text="Directions" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+
+	<TextView android:id="@+id/directions_list_text"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:text="List of directions" android:layout_weight="1" />
+
+	<Button android:id="@+id/directions_list_goto_map"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="Get Map!" />
+
+
+	<LinearLayout style="@style/myLLayout_NavigationButtons"
+		android:layout_weight="0">
+		<Button android:id="@+id/Dir_list_search_button" style="@style/searchButton" />
+		<Button android:id="@+id/Dir_list_map_button" style="@style/mapButton" />
+		<Button android:id="@+id/Dir_list_directions_button" style="@style/directionsButton" />
+	</LinearLayout>
+
+</LinearLayout>

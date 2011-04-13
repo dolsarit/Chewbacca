@@ -6,18 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.LinearLayout.LayoutParams;
 
 public class BakerNearby extends Activity{
     /** Called when the activity is first created. */
@@ -36,7 +33,7 @@ public class BakerNearby extends Activity{
 
         gridview.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(BakerNearby.this, "" + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(BakerNearby.this, "" + position, Toast.LENGTH_SHORT).show();
             }
         });
         
@@ -71,6 +68,15 @@ public class BakerNearby extends Activity{
         	}
         });
 
+        TextView bc = (TextView) findViewById(R.id.nearby_rooms_breadcrumb);
+        bc.setClickable(true);
+        
+        bc.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				BakerNearby.this.finish();
+			}
+        });
     }
 
     public class ImageAdapter extends BaseAdapter {
@@ -116,18 +122,12 @@ public class BakerNearby extends Activity{
         }
 
         private String[] mThumbText = {
-        		"pic_0", "pic_1",
-        		"pic_2", "pic_3",
-        		"pic_4", "pic_5",
-        		"pic_6", "pic_7"
+        		"Baker", "Hunt"
         };
         
         // references to our images
         private Integer[] mThumbIds = {
-        		R.drawable.sample_0, R.drawable.sample_1,
-        		R.drawable.sample_2, R.drawable.sample_3,
-                R.drawable.sample_4, R.drawable.sample_5,
-                R.drawable.sample_6, R.drawable.sample_7
+        		R.drawable.baker_hall_1, R.drawable.hunt_lib_1
         };
     }
     

@@ -1,5 +1,9 @@
 package cmuHCI.WalkyScotty;
 
+import java.io.IOException;
+
+import cmuHCI.WalkyScotty.entities.Location;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -29,6 +33,8 @@ public class BakerInfo extends Activity{
         // Set title of the description
         TextView desc = (TextView) findViewById(R.id.BakerHallDes);
         desc.setText(R.string.BakerDes);
+        
+        loadDetails(getIntent().getIntExtra("lID", 1));
         
         // Set up Button Actions
         
@@ -95,6 +101,31 @@ public class BakerInfo extends Activity{
         		BakerInfo.this.startActivity(new Intent(BakerInfo.this, MapMainActivity.class));
         	}
         });
+    }
+    
+    private void loadDetails(int locID){
+    	Location loc;
+    	DBAdapter adp = new DBAdapter(this);
+		try {
+			adp.createDataBase();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		adp.openDataBase();
+		
+		loc = adp.getLocation(locID); 
+		
+		adp.close();
+		
+		TextView title = (TextView) findViewById(R.id.BakerHallText);
+		title.setText(loc.getName());
+		
+		TextView desc = (TextView) findViewById(R.id.BakerHallDes);
+        desc.setText(loc.getDescription());
+        
+        TextView crumb = (TextView) findViewById(R.id.DetailsCrumb);
+        crumb.setText("Buildings > " + loc.getName());
     }
 
 }

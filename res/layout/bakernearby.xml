@@ -1,45 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  	android:layout_width="fill_parent"
-  	android:layout_height="fill_parent"
-  	android:orientation="vertical" >
-  	
-  	<TextView
-  	android:id="@+id/NearbyText"
-  	android:layout_weight="0"
-  	style="@style/title" />
-  	
-  	<LinearLayout
-  	android:layout_width="fill_parent"
-  	android:layout_height="fill_parent"
-  	android:orientation="vertical" >
-  	
-  	<GridView
-    android:id="@+id/gridview"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:columnWidth="90dp"
-    android:numColumns="2"
-    android:verticalSpacing="10dp"
-    android:horizontalSpacing="10dp"
-    android:stretchMode="columnWidth"
-    android:gravity="center" />
-  	
-  	<LinearLayout 
-  	android:id="@+id/navigateLayout"
-  	android:layout_weight="0"
-    style="@style/myLLayout_NavigationButtons" >
-  		<Button 
-    		android:id="@+id/BakerNearby_Map_Button"
-    		style="@style/mapButton"/>	
-    	<Button 
-    		android:id="@+id/BakerNearby_Search_Button"
-    		style="@style/searchButton"/>
-    	<Button
-    		android:id="@+id/BakerNearby_Directions_Button"
-    		style="@style/directionsButton"/>
-  	</LinearLayout>
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
 
- 	</LinearLayout>
-  </LinearLayout>
+	<TextView android:layout_width="fill_parent" android:id="@+id/nearby_rooms_breadcrumb"
+		android:layout_height="wrap_content" android:text="Buildings > Baker Hall > Nearby" />
+
+	<TextView android:id="@+id/NearbyText" android:layout_weight="0"
+		style="@style/title" />
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:orientation="vertical">
+
+		<GridView android:id="@+id/gridview" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:columnWidth="90dp" android:numColumns="2"
+			android:verticalSpacing="10dp" android:horizontalSpacing="10dp"
+			android:stretchMode="columnWidth" android:gravity="center" />
+
+		<LinearLayout android:id="@+id/navigateLayout"
+			android:layout_weight="0" style="@style/myLLayout_NavigationButtons">
+			<Button android:id="@+id/BakerNearby_Map_Button" style="@style/mapButton" />
+			<Button android:id="@+id/BakerNearby_Search_Button" style="@style/searchButton" />
+			<Button android:id="@+id/BakerNearby_Directions_Button" style="@style/directionsButton" />
+		</LinearLayout>
+
+	</LinearLayout>
+</LinearLayout>

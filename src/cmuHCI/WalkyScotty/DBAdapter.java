@@ -5,17 +5,20 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
-import cmuHCI.WalkyScotty.entities.*;
+import cmuHCI.WalkyScotty.entities.Building;
+import cmuHCI.WalkyScotty.entities.DirectionList;
+import cmuHCI.WalkyScotty.entities.Escort;
+import cmuHCI.WalkyScotty.entities.Location;
+import cmuHCI.WalkyScotty.entities.Restaurant;
+import cmuHCI.WalkyScotty.entities.Room;
+import cmuHCI.WalkyScotty.entities.Service;
+import cmuHCI.WalkyScotty.entities.Shuttle;
 
 public class DBAdapter extends SQLiteOpenHelper {
 
@@ -374,11 +377,38 @@ public class DBAdapter extends SQLiteOpenHelper {
 		return escorts;
 	}
 	
-	public Location getLocation(String loc){
+	public Location getLocation(int locID){
 		
 		Cursor c = myDataBase.query(true, "locations", 
 				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "" +
-						"locations.name = " + loc, null, null, null, "locations.name", null);
+						"locations._id = " + locID, null, null, null, "locations.name", null);
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("_id");
+		int nameCol = c.getColumnIndex("name");
+		int descCol = c.getColumnIndex("description");
+		int imgCol = c.getColumnIndex("image");
+		
+		if(c!=null){
+			if(c.isFirst()){
+				int id = c.getInt(idCol);
+				String name = c.getString(nameCol);
+				String desc = c.getString(descCol);
+				String img = c.getString(imgCol);
+				
+				return new Location(id, name, desc, img);
+			}
+		}
+		
+		return null;
+	}
+	
+public Location getLocation(String loc){
+		
+		Cursor c = myDataBase.query(true, "locations", 
+				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "" +
+						"locations.name = '" + loc + "'", null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
