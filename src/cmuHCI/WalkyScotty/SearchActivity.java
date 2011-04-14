@@ -72,7 +72,10 @@ public class SearchActivity extends Activity {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,
 					int groupPosition, int childPosition, long id) {
-					navigateDetailsPage(LOCATIONS[groupPosition][childPosition].getId());
+					if(childData.get(groupPosition).get(childPosition).containsValue("More"))
+						navigateMorePage(groupPosition);
+					else
+						navigateDetailsPage(LOCATIONS[groupPosition][childPosition].getId());
 				return true;
 			}
         	
@@ -149,6 +152,15 @@ public class SearchActivity extends Activity {
 		this.startActivity(i);
 	}
 	
+	private void navigateMorePage(int category){
+		if(category <0)
+			throw new RuntimeException("Bat category id");
+		
+		Intent i = new Intent(this, MoreItemsActivity.class);
+		i.putExtra("which", LocationType.fromInt(category).toString());
+		this.startActivity(i);
+	}
+	
 	private void buildList(){
 		for (int i = 0; i < PLACES.length; i++) {
         	if(PLACES[i] == null || PLACES[i].equals(""))
@@ -182,39 +194,44 @@ public class SearchActivity extends Activity {
 		
 		int i=0;
 		for(Building b:adp.getBuildings()){
-			if(i>= 10) break;
+			if(i>= 9) break;
 			SUBPLACES[0][i] = b.getName();
 			LOCATIONS[0][i] = b;
 			i++;
 		}
+		SUBPLACES[0][i] = "More";
 		i=0;
 		for(Restaurant r:adp.getRestaurants()){
-			if(i>= 10) break;
+			if(i>= 9) break;
 			SUBPLACES[1][i] = r.getName();
 			LOCATIONS[1][i] = r;
 			i++;
 		}
+		SUBPLACES[1][i] = "More";
 		i=0;
 		for(Room r:adp.getRooms()){
-			if(i>= 10) break;
+			if(i>= 9) break;
 			SUBPLACES[2][i] = r.getName();
 			LOCATIONS[2][i] = r;
 			i++;
 		}
+		SUBPLACES[2][i] = "More";
 		i=0;
 		for(Service s:adp.getServices()){
-			if(i>= 10) break;
+			if(i>= 9) break;
 			SUBPLACES[3][i] = s.getName();
 			LOCATIONS[3][i] = s;
 			i++;
 		}
+		SUBPLACES[3][i] = "More";
 		i=0;
 		for(Escort e:adp.getEscorts()){
-			if(i>= 10) break;
+			if(i>= 9) break;
 			SUBPLACES[4][i] = e.getName();
 			LOCATIONS[4][i] = e;
 			i++;
 		}
+		SUBPLACES[4][i] = "More";
 		
 		adp.close();
 	}

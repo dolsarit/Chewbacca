@@ -56,7 +56,9 @@ public class BakerInfo extends Activity{
 
 			@Override
 			public void onClick(View view) {
-				BakerInfo.this.startActivity(new Intent(BakerInfo.this, BuildingsRoomsActivity.class));
+				Intent i = new Intent(BakerInfo.this, BuildingsRoomsActivity.class);
+				i.putExtra("bID", getIntent().getIntExtra("lID", 1));
+				BakerInfo.this.startActivity(i);
 			}
         	
         });
