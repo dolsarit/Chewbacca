@@ -32,7 +32,7 @@ public class SearchActivity extends Activity {
 	
 	// List of items to give to the autocomplete text box
 
-	private final String[] AC_PLACES = { "Baker Hall" };
+	private String[] AC_PLACES;
 	
 	private List<Map<String, String>> groupData = new ArrayList<Map<String, String>>();
     private List<List<Map<String, String>>> childData = new ArrayList<List<Map<String, String>>>();
@@ -79,6 +79,7 @@ public class SearchActivity extends Activity {
         });
 		
 		// Set up autocomplete for search box
+        buildSearchComponents();
 		
 		searchBox = (AutoCompleteTextView) findViewById(R.id.search_box);
 		
@@ -181,18 +182,63 @@ public class SearchActivity extends Activity {
 		
 		int i=0;
 		for(Building b:adp.getBuildings()){
-			//buildings.add(b.getName());
+			if(i>= 10) break;
 			SUBPLACES[0][i] = b.getName();
 			LOCATIONS[0][i] = b;
 			i++;
 		}
 		i=0;
 		for(Restaurant r:adp.getRestaurants()){
+			if(i>= 10) break;
 			SUBPLACES[1][i] = r.getName();
 			LOCATIONS[1][i] = r;
+			i++;
 		}
-		//bSUBPLACES[0] = (String[]) buildings.toArray();
+		i=0;
+		for(Room r:adp.getRooms()){
+			if(i>= 10) break;
+			SUBPLACES[2][i] = r.getName();
+			LOCATIONS[2][i] = r;
+			i++;
+		}
+		i=0;
+		for(Service s:adp.getServices()){
+			if(i>= 10) break;
+			SUBPLACES[3][i] = s.getName();
+			LOCATIONS[3][i] = s;
+			i++;
+		}
+		i=0;
+		for(Escort e:adp.getEscorts()){
+			if(i>= 10) break;
+			SUBPLACES[4][i] = e.getName();
+			LOCATIONS[4][i] = e;
+			i++;
+		}
 		
 		adp.close();
+	}
+	
+	private void buildSearchComponents(){
+		ArrayList<Location> locs;
+		
+		DBAdapter adp = new DBAdapter(this);
+		try {
+			adp.createDataBase();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		adp.openDataBase();
+		locs = adp.getAllLocations();
+		adp.close();
+		
+		AC_PLACES = new String[locs.size()];
+		
+		int i = 0;
+		for(Location l:locs){
+			AC_PLACES[i] = l.getName();
+			i++;
+		}
 	}
 }

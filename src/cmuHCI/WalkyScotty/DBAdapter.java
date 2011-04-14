@@ -182,7 +182,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public ArrayList<Room> getRooms(){
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
-		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", new String[]{"rooms._id", "rooms.name","rooms.description","rooms.image"}, null, null, null, null, "locations.name", null);
+		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", new String[]{"rooms._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -212,7 +212,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
 		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", 
-				new String[]{"rooms._id", "rooms.name","rooms.description","rooms.image"}, "rooms.building_id = " + building.getId(), null, null, null, "locations.name", null);
+				new String[]{"rooms._id", "locations.name","locations.description","locations.image"}, "rooms.building_id = " + building.getId(), null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -404,7 +404,37 @@ public class DBAdapter extends SQLiteOpenHelper {
 		return null;
 	}
 	
-public Location getLocation(String loc){
+	public ArrayList<Location> getAllLocations(){
+		ArrayList<Location> locations = new ArrayList<Location>();
+		
+		Cursor c = myDataBase.query(true, "locations", 
+				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("_id");
+		int nameCol = c.getColumnIndex("name");
+		int descCol = c.getColumnIndex("description");
+		int imgCol = c.getColumnIndex("image");
+		
+		if(c!=null){
+			if(c.isFirst()){
+				do{
+					int id = c.getInt(idCol);
+					String name = c.getString(nameCol);
+					String desc = c.getString(descCol);
+					String img = c.getString(imgCol);
+					
+					locations.add(new Location(id, name, desc, img));
+				}
+				while(c.moveToNext());
+			}
+		}
+		
+		return locations;
+	}
+	
+	public Location getLocation(String loc){
 		
 		Cursor c = myDataBase.query(true, "locations", 
 				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "" +

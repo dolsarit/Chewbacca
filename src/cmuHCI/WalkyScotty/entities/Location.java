@@ -18,6 +18,8 @@ public class Location {
 	}
 
 	public String getName() {
+		if(name == null)
+			return "";
 		return name;
 	}
 

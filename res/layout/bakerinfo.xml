@@ -32,6 +32,7 @@
 
 
 	<LinearLayout android:id="@+id/navigateLayout"
+		android:layout_weight="0"
 		style="@style/myLLayout_NavigationButtons">
 		<Button android:id="@+id/BakerHall_Map_Button" style="@style/mapButton" />
 		<Button android:id="@+id/BakerHall_Search_Button" style="@style/searchButton" />
