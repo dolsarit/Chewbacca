@@ -61,11 +61,14 @@ public class MoreItemsActivity extends Activity{
 		adp.openDataBase();
 		
 		switch(type){
-			case BUILDING :
+			case BUILDINGS :
 				locs = adp.getBuildings();
 				break;
-			case ROOM :
+			case ROOMS :
 				locs = adp.getRooms();
+				break;
+			case RESTAURANTS :
+				locs = adp.getRestaurants();
 				break;
 			default:
 				locs = adp.getAllLocations();

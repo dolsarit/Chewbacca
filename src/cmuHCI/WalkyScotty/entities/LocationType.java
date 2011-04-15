@@ -1,7 +1,7 @@
 package cmuHCI.WalkyScotty.entities;
 
 public enum LocationType {
-	BUILDING(0), ROOM(1);
+	BUILDINGS(0), RESTAURANTS(1), ROOMS(2);
 	
 	private int type; 
 	
@@ -12,11 +12,13 @@ public enum LocationType {
 	public static LocationType fromInt(int c){
 		switch(c){
 			case 0:
-				return BUILDING;
+				return BUILDINGS;
 			case 1:
-				return ROOM;
+				return RESTAURANTS;
+			case 2:
+				return ROOMS;
 			default:
-				return BUILDING;
+				return BUILDINGS;
 		}
 	}
 	

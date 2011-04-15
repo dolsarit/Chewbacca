@@ -72,7 +72,7 @@ public class SearchActivity extends Activity {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,
 					int groupPosition, int childPosition, long id) {
-					if(childData.get(groupPosition).get(childPosition).containsValue("More"))
+					if(childData.get(groupPosition).get(childPosition).containsValue("More..."))
 						navigateMorePage(groupPosition);
 					else
 						navigateDetailsPage(LOCATIONS[groupPosition][childPosition].getId());
@@ -199,7 +199,7 @@ public class SearchActivity extends Activity {
 			LOCATIONS[0][i] = b;
 			i++;
 		}
-		SUBPLACES[0][i] = "More";
+		SUBPLACES[0][i] = "More...";
 		i=0;
 		for(Restaurant r:adp.getRestaurants()){
 			if(i>= 9) break;
@@ -207,7 +207,7 @@ public class SearchActivity extends Activity {
 			LOCATIONS[1][i] = r;
 			i++;
 		}
-		SUBPLACES[1][i] = "More";
+		SUBPLACES[1][i] = "More...";
 		i=0;
 		for(Room r:adp.getRooms()){
 			if(i>= 9) break;
@@ -215,7 +215,7 @@ public class SearchActivity extends Activity {
 			LOCATIONS[2][i] = r;
 			i++;
 		}
-		SUBPLACES[2][i] = "More";
+		SUBPLACES[2][i] = "More...";
 		i=0;
 		for(Service s:adp.getServices()){
 			if(i>= 9) break;
@@ -223,7 +223,7 @@ public class SearchActivity extends Activity {
 			LOCATIONS[3][i] = s;
 			i++;
 		}
-		SUBPLACES[3][i] = "More";
+		SUBPLACES[3][i] = "More...";
 		i=0;
 		for(Escort e:adp.getEscorts()){
 			if(i>= 9) break;
@@ -231,7 +231,7 @@ public class SearchActivity extends Activity {
 			LOCATIONS[4][i] = e;
 			i++;
 		}
-		SUBPLACES[4][i] = "More";
+		SUBPLACES[4][i] = "More...";
 		
 		adp.close();
 	}
