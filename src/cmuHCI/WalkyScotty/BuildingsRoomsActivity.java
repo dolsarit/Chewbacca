@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 
 
-public class BuildingsRoomsActivity extends Activity{
+public class BuildingsRoomsActivity extends WSActivity{
 
 	private String[] ROOMS;
 	private ArrayList<Room> rooms;

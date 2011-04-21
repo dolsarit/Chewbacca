@@ -2,9 +2,6 @@ package cmuHCI.WalkyScotty;
 
 import java.io.IOException;
 
-import cmuHCI.WalkyScotty.entities.Location;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -13,8 +10,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import cmuHCI.WalkyScotty.entities.Location;
 
-public class BakerInfo extends Activity{
+public class BakerInfo extends WSActivity{
     /** Called when the activity is first created. */
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -72,36 +70,6 @@ public class BakerInfo extends Activity{
 				BakerInfo.this.startActivity(new Intent(BakerInfo.this, BakerNearby.class));
 			}
         	
-        });
-        
-        Button directionsButton = (Button) findViewById(R.id.BakerHall_Directions_Button);
-        
-        directionsButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		BakerInfo.this.startActivity(new Intent(BakerInfo.this, DirectionsMainActivity.class));
-        	}
-        });
-        
-        Button searchButton = (Button) findViewById(R.id.BakerHall_Search_Button);
-        
-        searchButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		BakerInfo.this.startActivity(new Intent(BakerInfo.this, SearchActivity.class));
-        	}
-        });
-        
-        Button mapButton = (Button) findViewById(R.id.BakerHall_Map_Button);
-        
-        mapButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		BakerInfo.this.startActivity(new Intent(BakerInfo.this, MapMainActivity.class));
-        	}
         });
     }
     

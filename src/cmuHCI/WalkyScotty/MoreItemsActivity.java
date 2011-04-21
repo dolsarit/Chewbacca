@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-public class MoreItemsActivity extends Activity{
+public class MoreItemsActivity extends WSActivity{
 	private String[] places = new String[0];
 	@Override
     public void onCreate(Bundle savedInstanceState) {

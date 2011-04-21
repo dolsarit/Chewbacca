@@ -1,9 +1,8 @@
 package cmuHCI.WalkyScotty;
 	
-import android.app.Activity;
 import android.os.Bundle;
 	
-public class HelpActivity extends Activity{
+public class HelpActivity extends WSActivity{
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

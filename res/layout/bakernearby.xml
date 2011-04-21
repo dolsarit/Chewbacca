@@ -18,12 +18,5 @@
 			android:verticalSpacing="10dp" android:horizontalSpacing="10dp"
 			android:stretchMode="columnWidth" android:gravity="center" />
 
-		<LinearLayout android:id="@+id/navigateLayout"
-			android:layout_weight="0" style="@style/myLLayout_NavigationButtons">
-			<Button android:id="@+id/BakerNearby_Map_Button" style="@style/mapButton" />
-			<Button android:id="@+id/BakerNearby_Search_Button" style="@style/searchButton" />
-			<Button android:id="@+id/BakerNearby_Directions_Button" style="@style/directionsButton" />
-		</LinearLayout>
-
 	</LinearLayout>
 </LinearLayout>

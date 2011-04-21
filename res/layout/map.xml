@@ -12,25 +12,4 @@
     android:apiKey="0HpVlXFsQwyHbtxqrBKKgJaPkT1dOVt9dyNgZHQ"
     android:layout_weight="1"
 />
-<LinearLayout
-	style="@style/myLLayout_NavigationButtons"
-	android:layout_weight="0"
-	>
-<Button
-	android:id="@+id/Map_search_button"
-	style="@style/searchButton"
-	/>	
-<Button
-	android:id="@+id/Map_map_button"
-	style="@style/mapButton"
-	/>	
-<Button
-	android:id="@+id/Map_directions_button"
-	style="@style/directionsButton"
-	/>
-<Button
-	android:id="@+id/Map_help_button"
-	style="@style/helpButton"
-	/>
-</LinearLayout>
 </LinearLayout>
