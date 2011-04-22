@@ -1,6 +1,6 @@
 package cmuHCI.WalkyScotty.entities;
 
-public class Location {
+public class Location implements Comparable<Location>{
 	private int id;
 	private String name;
 	private String description;
@@ -29,6 +29,21 @@ public class Location {
 
 	public String getImg() {
 		return img;
+	}
+
+	@Override
+	public int compareTo(Location another) {		
+		return Integer.valueOf(this.id).compareTo(Integer.valueOf(another.id));
+	}
+	
+	@Override
+	public boolean equals(Object that){
+		return (that instanceof Location) && compareTo((Location)that) == 0;
+	}
+	
+	@Override
+	public int hashCode(){
+		return this.getId();
 	}
 	
 }

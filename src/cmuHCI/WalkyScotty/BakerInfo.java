@@ -14,11 +14,6 @@ import cmuHCI.WalkyScotty.entities.Location;
 
 public class BakerInfo extends WSActivity{
 	
-	private int[] images = 
-	{ 
-		R.drawable.bakerhall	
-	};
-	
     /** Called when the activity is first created. */
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +68,9 @@ public class BakerInfo extends WSActivity{
 
 			@Override
 			public void onClick(View view) {
-				BakerInfo.this.startActivity(new Intent(BakerInfo.this, BakerNearby.class));
+				Intent i = new Intent(BakerInfo.this, BakerNearby.class);
+				i.putExtra("lID", getIntent().getIntExtra("lID", 1));
+				BakerInfo.this.startActivity(i);
 			}
         	
         });

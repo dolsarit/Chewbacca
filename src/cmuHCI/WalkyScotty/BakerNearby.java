@@ -1,5 +1,11 @@
 package cmuHCI.WalkyScotty;
 
+import java.io.IOException;
+import java.util.Set;
+
+import cmuHCI.WalkyScotty.entities.Location;
+import cmuHCI.WalkyScotty.util.MyDirectedGraph;
+import cmuHCI.WalkyScotty.util.WeightedEdge;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,11 +20,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BakerNearby extends WSActivity{
+	private MyDirectedGraph<Location, WeightedEdge<Location>> graph;
+	private String[] names;
+	private Location[] locations;
+	
     /** Called when the activity is first created. */
     @Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bakernearby);
+        
+        loadNearby(getIntent().getIntExtra("lID", 1));
         
         // Set title of the page
         TextView title = (TextView) findViewById(R.id.NearbyText);
@@ -44,6 +56,53 @@ public class BakerNearby extends WSActivity{
 			}
         });
     }
+    
+    public void loadNearby(int locID){
+    	Set<Location> locs;
+    	
+    	DBAdapter adp = new DBAdapter(this);
+		try {
+			adp.createDataBase();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		adp.openDataBase();
+		
+		graph = adp.getGraph();
+		Location thisL = adp.getLocation(locID);
+		
+		TextView bc = (TextView) findViewById(R.id.nearby_rooms_breadcrumb);
+		bc.setText(thisL.getName() + " > Nearby");
+		
+		for(Location m : graph.vertices()){
+			System.out.println("vertex : " + m.getId());
+		}
+		
+			
+		locs = graph.outgoingNeighbors(new Location(locID, null, null, null));
+		
+		if(locs == null){
+			names = new String[0];
+			locations = new Location[0];
+		}
+		else{
+		
+			names = new String[locs.size()];
+			locations = new Location[locs.size()];
+			
+			int i = 0;
+			for(Location l : locs){
+				Location h = adp.getLocation(l.getId());
+				names[i] = h.getName();
+				locations[i] = h;
+				i++;
+			}
+		}
+		
+		adp.close();
+    	
+    }
 
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
@@ -53,7 +112,7 @@ public class BakerNearby extends WSActivity{
         }
 
         public int getCount() {
-            return mThumbIds.length;
+            return names.length;
         }
         
         // To do: return actual object
@@ -73,10 +132,10 @@ public class BakerNearby extends WSActivity{
         		LayoutInflater li = getLayoutInflater();
         		v = li.inflate(R.layout.gridbox, null);
         		TextView text = (TextView) v.findViewById(R.id.icon_text);
-                text.setText(mThumbText[position]);
+                text.setText(names[position]);
                 
                 ImageView image = (ImageView)v.findViewById(R.id.icon_image);
-                image.setImageResource(mThumbIds[position]);
+                image.setImageResource(mThumbIds[position % 2]);
                 //image.setLayoutParams(new GridView.LayoutParams(85, 85));
                 image.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 image.setPadding(8, 8, 8, 8);

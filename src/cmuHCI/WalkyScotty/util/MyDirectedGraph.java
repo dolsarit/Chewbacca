@@ -156,6 +156,12 @@ public class MyDirectedGraph<V extends Comparable<V>,E extends Edge<V>> implemen
 	
 	public Set<V> outgoingNeighbors (V vertex)
 	{
+		if(vertex == null)
+			throw new NullPointerException();
+		
+		if(!myGraph.containsKey(vertex))
+			return null;
+		
 		return myGraph.get(vertex).keySet();
 	}
 	
