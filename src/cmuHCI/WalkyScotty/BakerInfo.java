@@ -15,6 +15,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BakerInfo extends Activity{
+	
+	private int[] images = 
+	{ 
+		R.drawable.bakerhall	
+	};
+	
+	
+	
     /** Called when the activity is first created. */
     @Override
 	public void onCreate(Bundle savedInstanceState) {
