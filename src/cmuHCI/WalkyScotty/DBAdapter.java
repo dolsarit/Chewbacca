@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -19,6 +20,7 @@ import cmuHCI.WalkyScotty.entities.Restaurant;
 import cmuHCI.WalkyScotty.entities.Room;
 import cmuHCI.WalkyScotty.entities.Service;
 import cmuHCI.WalkyScotty.entities.Shuttle;
+import cmuHCI.WalkyScotty.util.*;
 
 public class DBAdapter extends SQLiteOpenHelper {
 
@@ -26,6 +28,13 @@ public class DBAdapter extends SQLiteOpenHelper {
     private static String DB_NAME = "chewbacca";
     private SQLiteDatabase myDataBase; 
     private final Context myContext;
+    
+    /* Image array..array index = loc_id */
+    private static int[] images = 
+	{ 
+		R.drawable.bakerhall	
+	};
+    
 	
 	public DBAdapter(Context context) {
 		//super(context, name, factory, version);
@@ -493,4 +502,43 @@ public class DBAdapter extends SQLiteOpenHelper {
 		return null;
 	
 	}
+	
+	public MyDirectedGraph<Location, WeightedEdge<Location>> getGraph(){
+		ArrayList<WeightedEdge<Location>> edges = new ArrayList<WeightedEdge<Location>>();
+		HashSet<Location> locs = new HashSet<Location>();
+		MyDirectedGraph<Location, WeightedEdge<Location>> graph = new MyDirectedGraph<Location, WeightedEdge<Location>>();
+		
+		Cursor c = myDataBase.query(true, "nearby", 
+				new String[]{"nearby._id", "nearby.loc_1","nearby.loc_2","nearby.dist"}, null, null, null, null, null, null);
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("_id");
+		int locCol = c.getColumnIndex("loc_1");
+		int loc2Col = c.getColumnIndex("loc_2");
+		int distCol = c.getColumnIndex("dist");
+		
+		if(c!=null){
+			if(c.isFirst()){
+				do{
+					int id = c.getInt(idCol);
+					int loc_1 = c.getInt(locCol);
+					int loc_2 = c.getInt(loc2Col);
+					int dist = c.getInt(distCol);
+					
+					Location l1 = new Location(loc_1, null, null, null);
+					Location l2 = new Location(loc_2, null, null, null);
+					
+					graph.addVertex(l1);
+					graph.addVertex(l2);
+
+					graph.addEdge(new WeightedEdge<Location>(l1, l2, dist));
+					graph.addEdge(new WeightedEdge<Location>(l2, l1, dist));
+				}
+				while(c.moveToNext());
+			}
+		}	
+		return graph;
+	}
+	
 }
