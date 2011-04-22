@@ -3,7 +3,6 @@ package cmuHCI.WalkyScotty;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.widget.Button;
 import cmuHCI.WalkyScotty.entities.Building;
 import cmuHCI.WalkyScotty.entities.Restaurant;
 
-public class DirectionsMainActivity extends Activity {
+public class DirectionsMainActivity extends WSActivity {
 	
 	AutoCompleteTextView from, to;
     

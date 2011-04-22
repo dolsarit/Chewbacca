@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,9 +20,15 @@ import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.Toast;
-import cmuHCI.WalkyScotty.entities.*;
+import cmuHCI.WalkyScotty.entities.Building;
+import cmuHCI.WalkyScotty.entities.Escort;
+import cmuHCI.WalkyScotty.entities.Location;
+import cmuHCI.WalkyScotty.entities.LocationType;
+import cmuHCI.WalkyScotty.entities.Restaurant;
+import cmuHCI.WalkyScotty.entities.Room;
+import cmuHCI.WalkyScotty.entities.Service;
 
-public class SearchActivity extends Activity {
+public class SearchActivity extends WSActivity {
 	private final String[] PLACES = { "Buildings", "Food Places", "Rooms",
 			"Services", "Other" };
 	

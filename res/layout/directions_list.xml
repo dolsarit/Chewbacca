@@ -18,12 +18,4 @@
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:text="Get Map!" />
 
-
-	<LinearLayout style="@style/myLLayout_NavigationButtons"
-		android:layout_weight="0">
-		<Button android:id="@+id/Dir_list_search_button" style="@style/searchButton" />
-		<Button android:id="@+id/Dir_list_map_button" style="@style/mapButton" />
-		<Button android:id="@+id/Dir_list_directions_button" style="@style/directionsButton" />
-	</LinearLayout>
-
 </LinearLayout>

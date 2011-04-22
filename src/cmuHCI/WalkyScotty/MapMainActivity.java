@@ -10,9 +10,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -21,8 +21,6 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 
 public class MapMainActivity extends MapActivity {
-	
-	private final int DIRECTIONS_RESULT = 1;
 	
     /** Called when the activity is first created. */
     @Override
@@ -37,39 +35,6 @@ public class MapMainActivity extends MapActivity {
         MapController mc = mapView.getController();
         mc.setCenter(new GeoPoint(40443110, -79943450)); // CMU Campus
         mc.setZoom(17); // Zoom just enough to see the entirety of main campus
-        
-        Button searchButton = (Button) findViewById(R.id.Map_search_button);
-        
-        searchButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				MapMainActivity.this.startActivity(new Intent(MapMainActivity.this, SearchActivity.class));
-			}
-        	
-        });
-        
-        Button directionsButton = (Button) findViewById(R.id.Map_directions_button);
-        
-        directionsButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		MapMainActivity.this.startActivityForResult(new Intent(MapMainActivity.this, DirectionsMainActivity.class), DIRECTIONS_RESULT);
-        	}
-        });
-        
-        Button helpButton = (Button) findViewById(R.id.Map_help_button);
-        
-        helpButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		MapMainActivity.this.startActivity(new Intent(MapMainActivity.this, HelpActivity.class));
-        	}
-        });
-        
-        // Do Nothing for Map button (obviously)
         
 		DBAdapter adp = new DBAdapter(this);
 		try {
@@ -170,6 +135,35 @@ public class MapMainActivity extends MapActivity {
 			overlays.clear();
 			
 			mapView.invalidate();
+    	}
+    }
+    
+protected final int DIRECTIONS_RESULT = 1;
+	
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	MenuInflater mi = getMenuInflater();
+    	mi.inflate(R.menu.menu, menu);
+    	return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	switch (item.getItemId()) {
+    	case R.id.menu_directions:
+    		startActivityForResult(new Intent(this, DirectionsMainActivity.class), DIRECTIONS_RESULT);
+    		return true;
+    	case R.id.menu_help:
+    		startActivity(new Intent(this, HelpActivity.class));
+    		return true;
+    	case R.id.menu_map:
+    		startActivity(new Intent(this, MapMainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
+    		return true;
+    	case R.id.menu_search:
+    		startActivity(new Intent(this, SearchActivity.class));
+    		return true;
+    	default:
+        	return super.onOptionsItemSelected(item);
     	}
     }
     

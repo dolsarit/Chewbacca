@@ -1,8 +1,6 @@
 package cmuHCI.WalkyScotty;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +9,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class BakerNearby extends Activity{
+public class BakerNearby extends WSActivity{
     /** Called when the activity is first created. */
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -35,37 +32,6 @@ public class BakerNearby extends Activity{
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 //Toast.makeText(BakerNearby.this, "" + position, Toast.LENGTH_SHORT).show();
             }
-        });
-        
-        
-        Button directionsButton = (Button) findViewById(R.id.BakerNearby_Directions_Button);
-        
-        directionsButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		BakerNearby.this.startActivity(new Intent(BakerNearby.this, DirectionsMainActivity.class));
-        	}
-        });
-        
-        Button searchButton = (Button) findViewById(R.id.BakerNearby_Search_Button);
-        
-        searchButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		BakerNearby.this.startActivity(new Intent(BakerNearby.this, SearchActivity.class));
-        	}
-        });
-        
-        Button mapButton = (Button) findViewById(R.id.BakerNearby_Map_Button);
-        
-        mapButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		BakerNearby.this.startActivity(new Intent(BakerNearby.this, MapMainActivity.class));
-        	}
         });
 
         TextView bc = (TextView) findViewById(R.id.nearby_rooms_breadcrumb);

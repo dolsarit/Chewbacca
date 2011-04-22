@@ -1,6 +1,5 @@
 package cmuHCI.WalkyScotty;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class DirectionsListActivity extends Activity {
+public class DirectionsListActivity extends WSActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,37 +36,6 @@ public class DirectionsListActivity extends Activity {
 				DirectionsListActivity.this.startActivity(new Intent(DirectionsListActivity.this, MapMainActivity.class));
 			}
 		});
-		
-		Button searchButton = (Button) findViewById(R.id.Dir_list_search_button);
-        
-        searchButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				DirectionsListActivity.this.startActivity(new Intent(DirectionsListActivity.this, SearchActivity.class));
-			}
-        	
-        });
-        
-        Button directionsButton = (Button) findViewById(R.id.Dir_list_directions_button);
-        
-        directionsButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		DirectionsListActivity.this.startActivity(new Intent(DirectionsListActivity.this, DirectionsMainActivity.class));
-        	}
-        });
-        
-        Button mapButton = (Button) findViewById(R.id.Dir_list_map_button);
-        
-        mapButton.setOnClickListener(new OnClickListener() {
-        	
-        	@Override
-        	public void onClick(View view) {
-        		DirectionsListActivity.this.startActivity(new Intent(DirectionsListActivity.this, MapMainActivity.class));
-        	}
-        });
         
         TextView bc = (TextView) findViewById(R.id.directions_list_breadcrumb);
         bc.setClickable(true);
