@@ -47,6 +47,7 @@ public class BuildingsRoomsActivity extends WSActivity{
 		b = adp.getBuilding(getIntent().getIntExtra("lID", 1));
 		
 		if(b != null){
+			//TODO This should load the name of the location into building so it can get loaded into the breadcrumb
 			building = b.getName();
 			
 			rooms = adp.getRooms(b);
@@ -59,6 +60,7 @@ public class BuildingsRoomsActivity extends WSActivity{
 			}
 		}
 		else{
+			building = null;
 			ROOMS = new String[0];
 			rooms = null;
 		}

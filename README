@@ -1,18 +1,5 @@
-TODO
-
-	Styling Everything
-	Complete all form interactions
-		Directions Autocomplete
-		Autocomplete from database
-		Categorical Search Buttons
-	Pull all strings, photos from database
-		Autocomplete adapters
-		Nearby locations
-		Text, Photo, etc. on Location Detail Page
-[X] Complete all button interactions
-[X] Nearby Rooms page
-	Some form of directions feature
-	Fill data into backend
-		Eating locations, shuttle schedules, etc.
-		Pictures for nearby locations
-		Room & Building Info
+Grouping
+Grid
+Fonts, Colors
+Headings / Titles
+Buttons on Map screen, or make a main screen?

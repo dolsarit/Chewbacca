@@ -129,7 +129,7 @@
 		<item name="android:text">Search</item>
 	</style>
 	<style name="breadcrumbArrow" parent="@style/breadcrumbText">
-		<item name="android:text">></item>
+		<item name="android:text"> > </item>
 	</style>
 	<style name="breadcrumbBuildingsText" parent="@style/breadcrumbText">
 		<item name="android:text">Buildings</item>

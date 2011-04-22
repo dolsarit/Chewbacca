@@ -3,28 +3,30 @@
 	android:layout_width="match_parent" android:layout_height="match_parent"
 	android:orientation="vertical">
 	<LinearLayout style="@style/breadcrumbLL">
-  		<TextView style="@style/breadcrumbMapText" />
-  		<TextView style="@style/breadcrumbArrow" />
-  		<TextView style="@style/breadcrumbHelpText" />
-  	</LinearLayout>
-	<TextView android:id="@+id/textView2" android:layout_width="wrap_content"
+		<TextView style="@style/breadcrumbMapText" />
+		<TextView style="@style/breadcrumbArrow" />
+		<TextView style="@style/breadcrumbHelpText" />
+	</LinearLayout>
+	<TextView android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="@string/Help"
 		style="@style/title" />
-	<TextView android:id="@+id/textView2" android:layout_width="wrap_content"
+	<ImageView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:src="@drawable/map" />
+	<TextView android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="@string/Map" style="@style/subtitle" />
 	<TextView android:text="@string/map_fuction"
 		android:layout_width="wrap_content" android:layout_height="wrap_content" />
+	<ImageView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:src="@drawable/directions" />
 	<TextView android:text="@string/Directions"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		style="@style/subtitle" />
 	<TextView android:text="@string/directions_function"
 		android:layout_width="wrap_content" android:layout_height="wrap_content" />
+	<ImageView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:src="@drawable/search" />
 	<TextView android:text="@string/Search" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" style="@style/subtitle" />
 	<TextView android:text="@string/search_function"
-		android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:text="@string/Nearby" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" style="@style/subtitle" />
-	<TextView android:text="@string/nearby_function"
 		android:layout_width="wrap_content" android:layout_height="wrap_content" />
 </LinearLayout>

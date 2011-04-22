@@ -3,9 +3,6 @@ package cmuHCI.WalkyScotty;
 import java.io.IOException;
 import java.util.Set;
 
-import cmuHCI.WalkyScotty.entities.Location;
-import cmuHCI.WalkyScotty.util.MyDirectedGraph;
-import cmuHCI.WalkyScotty.util.WeightedEdge;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +15,9 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import cmuHCI.WalkyScotty.entities.Location;
+import cmuHCI.WalkyScotty.util.MyDirectedGraph;
+import cmuHCI.WalkyScotty.util.WeightedEdge;
 
 public class BakerNearby extends WSActivity{
 	private MyDirectedGraph<Location, WeightedEdge<Location>> graph;
@@ -46,9 +46,6 @@ public class BakerNearby extends WSActivity{
             	navigateDetailsPage(locations[position].getId());
             }
         });
-
-        TextView bc = (TextView) findViewById(R.id.bakernearby_breadcrumb_building);
-        bc.setText("PLACEHOLDER");
     }
     
     private void navigateDetailsPage(int locID){
@@ -75,8 +72,8 @@ public class BakerNearby extends WSActivity{
 		graph = adp.getGraph();
 		Location thisL = adp.getLocation(locID);
 		
-		TextView bc = (TextView) findViewById(R.id.nearby_rooms_breadcrumb);
-		bc.setText(thisL.getName() + " > Nearby");
+		TextView bc = (TextView) findViewById(R.id.bakernearby_breadcrumb_building);
+		bc.setText(thisL.getName());
 		
 		for(Location m : graph.vertices()){
 			System.out.println("vertex : " + m.getId());

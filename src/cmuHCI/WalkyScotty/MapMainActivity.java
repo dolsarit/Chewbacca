@@ -48,6 +48,8 @@ public class MapMainActivity extends MapActivity {
 		adp.getRestaurants(); //Spits out an arraylist of buildings
 		
 		adp.close();
+		
+		
     }
     
     class RouteOverlay extends com.google.android.maps.Overlay {
