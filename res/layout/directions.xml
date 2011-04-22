@@ -2,8 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	android:orientation="vertical">
-	<TextView android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="Directions" />
+	<LinearLayout style="@style/breadcrumbLL">
+  		<TextView style="@style/breadcrumbMapText" />
+  		<TextView style="@style/breadcrumbArrow" />
+  		<TextView style="@style/breadcrumbDirectionsText" />
+  	</LinearLayout>
 	<TextView android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="Directions" style="@style/title" />
 	<TextView android:text="From:" android:layout_width="wrap_content"

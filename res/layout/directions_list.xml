@@ -3,6 +3,15 @@
 	android:layout_width="match_parent" android:layout_height="match_parent"
 	android:orientation="vertical">
 
+	<LinearLayout style="@style/breadcrumbLL">
+  		<TextView style="@style/breadcrumbMapText" />
+  		<TextView style="@style/breadcrumbArrow" />
+  		<TextView style="@style/breadcrumbSearchText" />
+  		<TextView style="@style/breadcrumbArrow" />
+  		<TextView style="@style/breadcrumbDirectionsText" />
+  		<TextView style="@style/breadcrumbArrow" />
+  	</LinearLayout>
+
 	<TextView android:layout_width="fill_parent" android:id="@+id/directions_list_breadcrumb"
 		android:layout_height="wrap_content" android:text="Directions > Baker Hall to Merson Courtyard" />
 

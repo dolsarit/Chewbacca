@@ -114,4 +114,39 @@
 		<item name="android:layout_weight">0</item>
 	</style>
 
+	<!-- Style for breadcrumbs -->
+	<style name="breadcrumbText">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+	<style name="breadcrumbLL" parent="@style/breadcrumbText">
+		<item name="android:orientation">horizontal</item>
+	</style>
+	<style name="breadcrumbMapText" parent="@style/breadcrumbText">
+		<item name="android:text">Map</item>
+	</style>
+	<style name="breadcrumbSearchText" parent="@style/breadcrumbText">
+		<item name="android:text">Search</item>
+	</style>
+	<style name="breadcrumbArrow" parent="@style/breadcrumbText">
+		<item name="android:text">></item>
+	</style>
+	<style name="breadcrumbBuildingsText" parent="@style/breadcrumbText">
+		<item name="android:text">Buildings</item>
+	</style>
+	<style name="breadcrumbHelpText" parent="@style/breadcrumbText">
+		<item name="android:text">Help</item>
+	</style>
+	<style name="breadcrumbDirectionsText" parent="@style/breadcrumbText">
+		<item name="android:text">Directions</item>
+	</style>
+	<style name="breadcrumbRoomsText" parent="@style/breadcrumbText">
+		<item name="android:text">Rooms</item>
+	</style>
+	<style name="breadcrumbNearbyText" parent="@style/breadcrumbText">
+		<item name="android:text">Nearby</item>
+	</style>
+	<style name="breadcrumbMoreText" parent="@style/breadcrumbText">
+		<item name="android:text">More</item>
+	</style>
 </resources>

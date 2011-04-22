@@ -2,8 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	android:orientation="vertical">
-	<TextView android:layout_width="fill_parent" android:id="@+id/more_items_breadcrumb"
-		android:layout_height="wrap_content" android:text="Buildings > Baker Hall > Rooms" />
+	<LinearLayout style="@style/breadcrumbLL">
+  		<TextView style="@style/breadcrumbMapText" />
+  		<TextView style="@style/breadcrumbArrow" />
+  		<TextView style="@style/breadcrumbSearchText" />
+  		<TextView style="@style/breadcrumbArrow" />
+  		<TextView style="@style/breadcrumbText" android:id="@+id/moreitems_breadcrumb_category"/>
+  		<TextView style="@style/breadcrumbArrow" />
+  		<TextView style="@style/breadcrumbMoreText" />
+  	</LinearLayout>
 	<TextView android:id="@+id/more_items_title" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="" style="@style/title" />
 	<ListView android:layout_height="wrap_content"

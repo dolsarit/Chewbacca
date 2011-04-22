@@ -14,14 +14,14 @@
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".SearchActivity" />
-		<activity android:name=".BakerInfo" />
-		<activity android:name=".BuildingsRoomsActivity" />
-		<activity android:name=".DirectionsMainActivity" />
-		<activity android:name=".BakerNearby" />
-		<activity android:name=".HelpActivity" />
-		<activity android:name=".DirectionsListActivity" />
-		<activity android:name=".MoreItemsActivity"/>
+		<activity android:name=".SearchActivity" android:screenOrientation="portrait" />
+		<activity android:name=".BakerInfo" android:screenOrientation="portrait" />
+		<activity android:name=".BuildingsRoomsActivity" android:screenOrientation="portrait" />
+		<activity android:name=".DirectionsMainActivity" android:screenOrientation="portrait" />
+		<activity android:name=".BakerNearby" android:screenOrientation="portrait" />
+		<activity android:name=".HelpActivity" android:screenOrientation="portrait" />
+		<activity android:name=".DirectionsListActivity" android:screenOrientation="portrait" />
+		<activity android:name=".MoreItemsActivity" android:screenOrientation="portrait" />
 	</application>
 
 	<uses-permission android:name="android.permission.INTERNET" />
