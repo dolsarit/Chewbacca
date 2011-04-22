@@ -11,8 +11,6 @@
   		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbNearbyText" />
   	</LinearLayout>
-	<TextView android:layout_width="fill_parent" android:id="@+id/nearby_rooms_breadcrumb"
-		android:layout_height="wrap_content" android:text="Buildings > Baker Hall > Nearby" />
 
 	<TextView android:id="@+id/NearbyText" android:layout_weight="0"
 		style="@style/title" />

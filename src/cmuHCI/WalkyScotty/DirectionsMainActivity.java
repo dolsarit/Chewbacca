@@ -33,10 +33,6 @@ public class DirectionsMainActivity extends WSActivity {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(DirectionsMainActivity.this, DirectionsListActivity.class);
-				//i.putExtra("from", from.getText());
-				//i.putExtra("to", to.getText());
-				//DirectionsMainActivity.this.setResult(0, i);
-				//DirectionsMainActivity.this.finish();
 				DirectionsMainActivity.this.startActivity(i);
 			}
 	     });

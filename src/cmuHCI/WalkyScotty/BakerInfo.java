@@ -100,8 +100,8 @@ public class BakerInfo extends WSActivity{
 		TextView desc = (TextView) findViewById(R.id.BakerHallDes);
         desc.setText(loc.getDescription());
         
-        TextView crumb = (TextView) findViewById(R.id.DetailsCrumb);
-        crumb.setText("Buildings > " + loc.getName());
+        TextView crumb = (TextView) findViewById(R.id.bakerinfo_breadcrumb_building);
+        crumb.setText(loc.getName());
     }
 
 }

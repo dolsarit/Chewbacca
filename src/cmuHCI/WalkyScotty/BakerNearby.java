@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -34,15 +33,8 @@ public class BakerNearby extends WSActivity{
             }
         });
 
-        TextView bc = (TextView) findViewById(R.id.nearby_rooms_breadcrumb);
-        bc.setClickable(true);
-        
-        bc.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				BakerNearby.this.finish();
-			}
-        });
+        TextView bc = (TextView) findViewById(R.id.bakernearby_breadcrumb_building);
+        bc.setText("PLACEHOLDER");
     }
 
     public class ImageAdapter extends BaseAdapter {

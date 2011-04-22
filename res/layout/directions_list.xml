@@ -10,10 +10,8 @@
   		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbDirectionsText" />
   		<TextView style="@style/breadcrumbArrow" />
+  		<TextView style="@style/breadcrumbText" android:id="@+id/directionslist_breadcrumb_locations" />
   	</LinearLayout>
-
-	<TextView android:layout_width="fill_parent" android:id="@+id/directions_list_breadcrumb"
-		android:layout_height="wrap_content" android:text="Directions > Baker Hall to Merson Courtyard" />
 
 	<TextView android:id="@+id/directions_list_title" style="@style/title"
 		android:text="Directions" android:layout_width="fill_parent"

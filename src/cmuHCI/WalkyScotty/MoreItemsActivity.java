@@ -39,18 +39,11 @@ public class MoreItemsActivity extends WSActivity implements OnItemClickListener
 		brlv.setOnItemClickListener(this);
 
 		
-		TextView bc = (TextView) findViewById(R.id.more_items_breadcrumb);
-        bc.setClickable(true);
-        
-        TextView title = (TextView) findViewById(R.id.more_items_title);
+		TextView bc = (TextView) findViewById(R.id.moreitems_breadcrumb_category);
         bc.setText(locType.toString());
         
-        bc.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				MoreItemsActivity.this.finish();
-			}
-        });
+        TextView title = (TextView) findViewById(R.id.more_items_title);
+        title.setText(locType.toString());
 
     }
 	

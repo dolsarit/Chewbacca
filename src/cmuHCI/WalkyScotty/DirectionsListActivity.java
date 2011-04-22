@@ -36,16 +36,10 @@ public class DirectionsListActivity extends WSActivity {
 				DirectionsListActivity.this.startActivity(new Intent(DirectionsListActivity.this, MapMainActivity.class));
 			}
 		});
+		
+		TextView bc = (TextView) findViewById(R.id.directionslist_breadcrumb_locations);
+		bc.setText("Baker Hall to Merson Ctyd.");
         
-        TextView bc = (TextView) findViewById(R.id.directions_list_breadcrumb);
-        bc.setClickable(true);
-        
-        bc.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				DirectionsListActivity.this.finish();
-			}
-        });
 	}
 	
 }
