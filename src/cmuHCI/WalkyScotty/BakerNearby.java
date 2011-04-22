@@ -7,6 +7,7 @@ import cmuHCI.WalkyScotty.entities.Location;
 import cmuHCI.WalkyScotty.util.MyDirectedGraph;
 import cmuHCI.WalkyScotty.util.WeightedEdge;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +44,7 @@ public class BakerNearby extends WSActivity{
         gridview.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 //Toast.makeText(BakerNearby.this, "" + position, Toast.LENGTH_SHORT).show();
+            	navigateDetailsPage(locations[position].getId());
             }
         });
 
@@ -56,6 +58,15 @@ public class BakerNearby extends WSActivity{
 			}
         });
     }
+    
+    private void navigateDetailsPage(int locID){
+		if(locID <= 0)
+			throw new RuntimeException("Bad Location ID");
+		
+		Intent i = new Intent(this, BakerInfo.class);
+		i.putExtra("lID", locID);
+		this.startActivity(i);
+	}
     
     public void loadNearby(int locID){
     	Set<Location> locs;
