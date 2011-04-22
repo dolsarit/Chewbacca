@@ -153,7 +153,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public ArrayList<Building> getBuildings(){
 		ArrayList<Building> buildings = new ArrayList<Building>();
 		
-		Cursor c = myDataBase.query(true, "buildings JOIN locations ON (buildings.location_id = locations._id)", new String[]{"buildings._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
+		Cursor c = myDataBase.query(true, "buildings JOIN locations ON (buildings.location_id = locations._id)", new String[]{"locations._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -182,7 +182,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public ArrayList<Room> getRooms(){
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
-		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", new String[]{"rooms._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
+		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", new String[]{"locations._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -212,7 +212,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
 		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", 
-				new String[]{"rooms._id", "locations.name","locations.description","locations.image"}, "rooms.building_id = " + building.getId(), null, null, null, "locations.name", null);
+				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "rooms.building_id = " + building.getId(), null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -240,7 +240,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	
 	public Building getBuilding(int buildingID){
 		Cursor c = myDataBase.query(true, "buildings JOIN locations ON (buildings.location_id = locations._id)", 
-				new String[]{"buildings._id", "locations.name","locations.description","locations.image"}, "buildings._id = " + buildingID, null, null, null, "locations.name", null);
+				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "buildings._id = " + buildingID, null, null, null, "locations.name", null);
 
 
 		c.moveToFirst();
@@ -337,7 +337,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Shuttle> shuttles = new ArrayList<Shuttle>();
 		
 		Cursor c = myDataBase.query(true, "shuttles JOIN locations ON (shuttles.location_id = locations._id)", 
-				new String[]{"shuttles._id", "locations.name","locations.description","locations.image",
+				new String[]{"locations._id", "locations.name","locations.description","locations.image",
 				"shuttles.hours", "shuttles.stops"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
@@ -372,7 +372,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Escort> escorts = new ArrayList<Escort>();
 		
 		Cursor c = myDataBase.query(true, "escorts JOIN locations ON (escorts.location_id = locations._id)", 
-				new String[]{"escorts._id", "locations.name","locations.description","locations.image",
+				new String[]{"locations._id", "locations.name","locations.description","locations.image",
 				"escorts.hours", "escorts.stops"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
