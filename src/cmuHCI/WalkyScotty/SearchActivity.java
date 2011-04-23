@@ -32,8 +32,8 @@ public class SearchActivity extends WSActivity {
 	private final String[] PLACES = { "Buildings", "Food Places", "Rooms",
 			"Services", "Other" };
 	
-	private String[][] SUBPLACES = new String[5][10];
-	private Location[][] LOCATIONS = new Location[5][10];
+	private String[][] SUBPLACES = new String[5][4];
+	private Location[][] LOCATIONS = new Location[5][4];
 	
 	// List of items to give to the autocomplete text box
 
@@ -199,7 +199,7 @@ public class SearchActivity extends WSActivity {
 		
 		int i=0;
 		for(Building b:adp.getBuildings()){
-			if(i>= 9) break;
+			if(i>= 3) break;
 			SUBPLACES[0][i] = b.getName();
 			LOCATIONS[0][i] = b;
 			i++;
@@ -207,7 +207,7 @@ public class SearchActivity extends WSActivity {
 		SUBPLACES[0][i] = "More...";
 		i=0;
 		for(Restaurant r:adp.getRestaurants()){
-			if(i>= 9) break;
+			if(i>= 3) break;
 			SUBPLACES[1][i] = r.getName();
 			LOCATIONS[1][i] = r;
 			i++;
@@ -215,7 +215,7 @@ public class SearchActivity extends WSActivity {
 		SUBPLACES[1][i] = "More...";
 		i=0;
 		for(Room r:adp.getRooms()){
-			if(i>= 9) break;
+			if(i>= 3) break;
 			SUBPLACES[2][i] = r.getName();
 			LOCATIONS[2][i] = r;
 			i++;
@@ -223,7 +223,7 @@ public class SearchActivity extends WSActivity {
 		SUBPLACES[2][i] = "More...";
 		i=0;
 		for(Service s:adp.getServices()){
-			if(i>= 9) break;
+			if(i>= 3) break;
 			SUBPLACES[3][i] = s.getName();
 			LOCATIONS[3][i] = s;
 			i++;
@@ -231,7 +231,7 @@ public class SearchActivity extends WSActivity {
 		SUBPLACES[3][i] = "More...";
 		i=0;
 		for(Escort e:adp.getEscorts()){
-			if(i>= 9) break;
+			if(i>= 3) break;
 			SUBPLACES[4][i] = e.getName();
 			LOCATIONS[4][i] = e;
 			i++;

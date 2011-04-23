@@ -10,14 +10,14 @@
 	<TextView android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="Directions" style="@style/title" />
 	<TextView android:text="From:" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" style="@style/label" />
+		android:layout_height="wrap_content" style="@style/subtitle" />
 	<AutoCompleteTextView android:layout_height="wrap_content"
 		android:id="@+id/directions_from" android:layout_width="match_parent"
 
 		android:text="Baker Hall" />
 	<!-- android:editable="false" -->
 	<TextView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:text="To:" style="@style/label" />
+		android:layout_height="wrap_content" android:text="To:" style="@style/subtitle" />
 	<AutoCompleteTextView android:layout_height="wrap_content"
 		android:id="@+id/directions_to" android:text="Merson Courtyard"
 

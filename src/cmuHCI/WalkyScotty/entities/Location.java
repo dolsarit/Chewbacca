@@ -6,6 +6,8 @@ public class Location implements Comparable<Location>{
 	private String description;
 	private String img;
 	
+	private LocationType lType;
+	
 	public Location(int ident, String nm, String desc, String image){
 		id = ident;
 		name = nm;
@@ -24,6 +26,8 @@ public class Location implements Comparable<Location>{
 	}
 
 	public String getDescription() {
+		if(description == null)
+			return "";
 		return description;
 	}
 

@@ -18,16 +18,20 @@
   		android:layout_width="fill_parent"
   		android:layout_height="wrap_content"
   		android:text="Quick Search"
-  		style="@style/label" />
-	<AutoCompleteTextView
+  		style="@style/subtitle" />
+	<TableLayout
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/search_box" />
-	<Button
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Search"
-		android:id="@+id/search_form_enter" />
+  		android:layout_height="wrap_content"
+  		android:stretchColumns="1"
+  		android:shrinkColumns="0">
+  		<TableRow>
+  			<AutoCompleteTextView
+				android:layout_height="wrap_content"
+				android:id="@+id/search_box" android:layout_width="250dp"/>
+			<Button android:text="Search" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/search_form_enter"></Button>
+  		</TableRow>
+		
+	</TableLayout>
 	<TextView
   		android:layout_width="fill_parent"
   		android:layout_height="wrap_content"

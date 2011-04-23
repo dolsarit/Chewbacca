@@ -15,16 +15,28 @@
 	<style name="title" parent="@android:style/TextAppearance.Large">
 		<item name="android:layout_width">fill_parent</item>
 		<item name="android:layout_height">wrap_content</item>
-		<item name="android:gravity">center</item>
-		<item name="android:textSize">20sp</item>
+		<item name="android:gravity">left</item>
+		<item name="android:textSize">30sp</item>
 		<item name="android:typeface">sans</item>
+		<item name="android:paddingTop">5dp</item>
+		<item name="android:paddingBottom">5dp</item>
 	</style>
 
 	<style name="subtitle" parent="@android:style/TextAppearance.Large">
 		<item name="android:layout_width">fill_parent</item>
 		<item name="android:layout_height">wrap_content</item>
-		<item name="android:gravity">center</item>
+		<item name="android:gravity">left</item>
 		<item name="android:textSize">16sp</item>
+		<item name="android:typeface">sans</item>
+		<item name="android:paddingTop">4dp</item>
+		<item name="android:paddingBottom">2dp</item>
+	</style>
+	
+	<style name="description" parent="@android:style/TextAppearance.Large">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">left</item>
+		<item name="android:textSize">12sp</item>
 		<item name="android:typeface">sans</item>
 	</style>
 
@@ -33,6 +45,15 @@
 		<item name="android:layout_height">wrap_content</item>
 		<item name="android:gravity">left</item>
 		<item name="android:textSize">16sp</item>
+		<item name="android:typeface">sans</item>
+	</style>
+
+	<style name="listitem" parent="@android:style/TextAppearance.Large">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">left</item>
+		<item name="android:textSize">16sp</item>
+		<item name="android:padding">10dp</item>
 		<item name="android:typeface">sans</item>
 	</style>
 
