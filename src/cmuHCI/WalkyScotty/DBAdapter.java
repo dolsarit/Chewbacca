@@ -32,9 +32,24 @@ public class DBAdapter extends SQLiteOpenHelper {
     /* Image array..array index = loc_id */
     private static int[] images = 
 	{ 
-		R.drawable.bakerhall	
+    	R.drawable.bakerhall,
+		R.drawable.bakerhall,
+		R.drawable.ghc,
+		R.drawable.si_senor1,
+		R.drawable.bakerhall,
+		R.drawable.ph,
+		R.drawable.cfa,
+		R.drawable.cic,
+		R.drawable.dh,
+		R.drawable.uc,
+		R.drawable.hbh,
+		R.drawable.hh,
+		R.drawable.hunt_lib_1
 	};
     
+    public static int getImage(int locID){
+    	return images[locID % images.length];
+    }
 	
 	public DBAdapter(Context context) {
 		//super(context, name, factory, version);

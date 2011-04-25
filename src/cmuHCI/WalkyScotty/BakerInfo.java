@@ -25,7 +25,7 @@ public class BakerInfo extends WSActivity{
         title.setText(R.string.BakerHall);
         
         // Add photo to screen
-        Drawable myImage = (this.getResources()).getDrawable(R.drawable.bakerhall);
+        Drawable myImage = (this.getResources()).getDrawable(DBAdapter.getImage(getIntent().getIntExtra("lID", 1)));
         ImageView photo = (ImageView) findViewById(R.id.BakerHallPhoto);
         photo.setImageDrawable(myImage);
         
