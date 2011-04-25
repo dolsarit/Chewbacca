@@ -6,18 +6,18 @@
 	<LinearLayout style="@style/breadcrumbLL">
   		<TextView style="@style/breadcrumbMapText" />
   		<TextView style="@style/breadcrumbArrow" />
-  		<TextView style="@style/breadcrumbBuildingsText" />
+  		<TextView style="@style/breadcrumbBuildingsText" android:text="@string/crumb_restaurants"/>
   		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbText" android:id="@+id/bakerinfo_breadcrumb_building" />
   	</LinearLayout>
   	
-	<TextView android:id="@+id/BakerHallText" style="@style/title" />
+	<TextView android:id="@+id/BakerHallText" style="@style/title"/>
 
 	<ImageView android:id="@+id/BakerHallPhoto"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:paddingLeft="60dp" />
+		android:layout_width="wrap_content" android:layout_height="wrap_content"/>
 	<TextView android:id="@+id/FoodHoursTitle" style="@style/subtitle" android:text="@string/FoodHoursTitle"/>
-	<TextView android:id="@+id/FoodHours"/>
+	<TextView android:id="@+id/FoodHours" style="@style/description"/>
+	<TextView android:id="@+id/BakerHallDetailsText" style="@style/subtitle" android:text="@string/BakerHallDetailsText"/>
 	<ScrollView android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:layout_weight="1">
 

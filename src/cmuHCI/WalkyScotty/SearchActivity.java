@@ -80,7 +80,7 @@ public class SearchActivity extends WSActivity {
 					if(childData.get(groupPosition).get(childPosition).containsValue("More..."))
 						navigateMorePage(groupPosition);
 					else
-						navigateDetailsPage(LOCATIONS[groupPosition][childPosition].getId());
+						navigateDetailsPage(LOCATIONS[groupPosition][childPosition]);
 				return true;
 			}
         	
@@ -121,16 +121,16 @@ public class SearchActivity extends WSActivity {
 	}
 
 	private void doSearch(String key) {
-		int id = getLocID(key);
-		if (id > 0) {
-			navigateDetailsPage(id);
+		Location loc = getLoc(key);
+		if (loc != null) {
+			navigateDetailsPage(loc);
 		} else {
 			Toast.makeText(this, "Can't find anything corresponding to " + key,
 					Toast.LENGTH_LONG).show();
 		}
 	}
 	
-	private int getLocID(String loc){
+	private Location getLoc(String loc){
 		DBAdapter adp = new DBAdapter(this);
 		try {
 			adp.createDataBase();
@@ -142,18 +142,23 @@ public class SearchActivity extends WSActivity {
 		
 		Location l = adp.getLocation(loc);
 		adp.close();
-		if(l == null)
-			return -1;
-		else
-			return l.getId();
+		return l;
 	}
 	
-	private void navigateDetailsPage(int locID){
-		if(locID <= 0)
+	private void navigateDetailsPage(Location loc){
+		if(loc.getId() <= 0)
 			throw new RuntimeException("Bad Location ID");
 		
-		Intent i = new Intent(this, BakerInfo.class);
-		i.putExtra("lID", locID);
+		Intent i;
+		switch(loc.getlType()){
+			case RESTAURANTS:
+				i = new Intent(this, FoodInfo.class);
+				break;
+			default:
+				i = new Intent(this, BakerInfo.class);
+		}
+		
+		i.putExtra("lID", loc.getId());
 		this.startActivity(i);
 	}
 	
@@ -230,7 +235,7 @@ public class SearchActivity extends WSActivity {
 		}
 		SUBPLACES[3][i] = "More...";
 		i=0;
-		for(Escort e:adp.getEscorts()){
+		for(Location e:adp.getOther()){
 			if(i>= 3) break;
 			SUBPLACES[4][i] = e.getName();
 			LOCATIONS[4][i] = e;

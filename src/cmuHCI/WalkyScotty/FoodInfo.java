@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cmuHCI.WalkyScotty.entities.Location;
+import cmuHCI.WalkyScotty.entities.Restaurant;
 
 public class FoodInfo extends WSActivity{
 	
@@ -25,7 +26,7 @@ public class FoodInfo extends WSActivity{
         title.setText(R.string.BakerHall);
         
         // Add photo to screen
-        Drawable myImage = (this.getResources()).getDrawable(R.drawable.bakerhall);
+        Drawable myImage = (this.getResources()).getDrawable(DBAdapter.getImage(getIntent().getIntExtra("lID", 1)));
         ImageView photo = (ImageView) findViewById(R.id.BakerHallPhoto);
         photo.setImageDrawable(myImage);
         
@@ -49,18 +50,6 @@ public class FoodInfo extends WSActivity{
         	
         });
         
-        Button rooms = (Button) findViewById(R.id.BakerHall_Rooms_Button);
-        
-        rooms.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				Intent i = new Intent(FoodInfo.this, BuildingsRoomsActivity.class);
-				i.putExtra("bID", getIntent().getIntExtra("lID", 1));
-				FoodInfo.this.startActivity(i);
-			}
-        	
-        });
         
         Button nearby = (Button) findViewById(R.id.BakerHall_Nearby_Button);
         
@@ -77,7 +66,7 @@ public class FoodInfo extends WSActivity{
     }
     
     private void loadDetails(int locID){
-    	Location loc;
+    	Restaurant loc;
     	DBAdapter adp = new DBAdapter(this);
 		try {
 			adp.createDataBase();
@@ -87,7 +76,7 @@ public class FoodInfo extends WSActivity{
 		}
 		adp.openDataBase();
 		
-		loc = adp.getLocation(locID); 
+		loc = adp.getRestaurant(locID); 
 		
 		adp.close();
 		
@@ -96,6 +85,9 @@ public class FoodInfo extends WSActivity{
 		
 		TextView desc = (TextView) findViewById(R.id.BakerHallDes);
         desc.setText(loc.getDescription());
+        
+        TextView hours = (TextView) findViewById(R.id.FoodHours);
+        hours.setText(loc.getHours());
         
         TextView crumb = (TextView) findViewById(R.id.bakerinfo_breadcrumb_building);
         crumb.setText(loc.getName());

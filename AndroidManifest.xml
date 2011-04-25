@@ -19,6 +19,7 @@
 		<activity android:name=".BuildingsRoomsActivity" android:screenOrientation="portrait" />
 		<activity android:name=".DirectionsMainActivity" android:screenOrientation="portrait" />
 		<activity android:name=".BakerNearby" android:screenOrientation="portrait" />
+		<activity android:name=".FoodInfo" android:screenOrientation="portrait" />
 		<activity android:name=".HelpActivity" android:screenOrientation="portrait" />
 		<activity android:name=".DirectionsListActivity" android:screenOrientation="portrait" />
 		<activity android:name=".MoreItemsActivity" android:screenOrientation="portrait" />

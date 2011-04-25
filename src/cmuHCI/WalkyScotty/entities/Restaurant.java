@@ -9,6 +9,7 @@ public class Restaurant extends Location {
 		// TODO Auto-generated constructor stub
 		hours = hrs;
 		menu_link = menu;
+		this.setlType("Food");
 	}
 
 	public String getHours() {

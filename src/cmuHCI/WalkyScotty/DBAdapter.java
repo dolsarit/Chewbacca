@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 
 import android.content.Context;
@@ -12,14 +13,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import cmuHCI.WalkyScotty.entities.Building;
-import cmuHCI.WalkyScotty.entities.DirectionList;
-import cmuHCI.WalkyScotty.entities.Escort;
-import cmuHCI.WalkyScotty.entities.Location;
-import cmuHCI.WalkyScotty.entities.Restaurant;
-import cmuHCI.WalkyScotty.entities.Room;
-import cmuHCI.WalkyScotty.entities.Service;
-import cmuHCI.WalkyScotty.entities.Shuttle;
+import cmuHCI.WalkyScotty.entities.*;
 import cmuHCI.WalkyScotty.util.*;
 
 public class DBAdapter extends SQLiteOpenHelper {
@@ -262,9 +256,9 @@ public class DBAdapter extends SQLiteOpenHelper {
 		return rooms;
 	}
 	
-	public Building getBuilding(int buildingID){
+	public Building getBuilding(int locationID){
 		Cursor c = myDataBase.query(true, "buildings JOIN locations ON (buildings.location_id = locations._id)", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "buildings._id = " + buildingID, null, null, null, "locations.name", null);
+				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "locations._id = " + locationID, null, null, null, "locations.name", null);
 
 
 		c.moveToFirst();
@@ -289,6 +283,36 @@ public class DBAdapter extends SQLiteOpenHelper {
 	}
 	
 	public Building getBuildingForRoom(){
+		return null;
+	}
+	
+	public Restaurant getRestaurant(int locationID){
+		Cursor c = myDataBase.query(true, "restaurants JOIN locations ON (restaurants.location_id = locations._id)", 
+				new String[]{"locations._id", "locations.name","locations.description","locations.image, restaurants.hours, restaurants.menu"}, "locations._id = " + locationID, null, null, null, "locations.name", null);
+
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("_id");
+		int nameCol = c.getColumnIndex("name");
+		int descCol = c.getColumnIndex("description");
+		int imgCol = c.getColumnIndex("image");
+		int hourCol = c.getColumnIndex("hours");
+		int menuCol = c.getColumnIndex("menu"); 
+		
+		if(c!=null){
+			if(c.isFirst()){
+				int id = c.getInt(idCol);
+				String name = c.getString(nameCol);
+				String desc = c.getString(descCol);
+				String img = c.getString(imgCol);
+				String hours = c.getString(hourCol);
+				String menu = c.getString(menuCol);
+				
+				return new Restaurant(id, name, desc, img, hours, menu);
+			}
+		}
+		
 		return null;
 	}
 	
@@ -371,7 +395,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
 		int hourCol = c.getColumnIndex("hours");
-		int stopCol = c.getColumnIndex("stop");
+		int stopCol = c.getColumnIndex("stops");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -427,10 +451,21 @@ public class DBAdapter extends SQLiteOpenHelper {
 		return escorts;
 	}
 	
+	public ArrayList<Location> getOther(){
+		ArrayList<Location> locations = new ArrayList<Location>();
+		
+		locations.addAll(getShuttles());
+		locations.addAll(getEscorts());
+		
+		Collections.sort(locations, new AlphaComparator());
+		
+		return locations;
+	}
+	
 	public Location getLocation(int locID){
 		
 		Cursor c = myDataBase.query(true, "locations", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "" +
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.loc_type"}, "" +
 						"locations._id = " + locID, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
@@ -439,6 +474,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int typeCol = c.getColumnIndex("loc_type");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -446,8 +482,12 @@ public class DBAdapter extends SQLiteOpenHelper {
 				String name = c.getString(nameCol);
 				String desc = c.getString(descCol);
 				String img = c.getString(imgCol);
+				String locType = c.getString(typeCol);
 				
-				return new Location(id, name, desc, img);
+				Location l = new Location(id, name, desc, img);
+				l.setlType(locType);
+				
+				return l;
 			}
 		}
 		
@@ -458,7 +498,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Location> locations = new ArrayList<Location>();
 		
 		Cursor c = myDataBase.query(true, "locations", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.loc_type"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -466,6 +506,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int typeCol = c.getColumnIndex("loc_type");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -474,8 +515,12 @@ public class DBAdapter extends SQLiteOpenHelper {
 					String name = c.getString(nameCol);
 					String desc = c.getString(descCol);
 					String img = c.getString(imgCol);
+					String locType = c.getString(typeCol);
 					
-					locations.add(new Location(id, name, desc, img));
+					Location l = new Location(id, name, desc, img);
+					l.setlType(locType);
+					
+					locations.add(l);
 				}
 				while(c.moveToNext());
 			}
@@ -487,7 +532,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public Location getLocation(String loc){
 		
 		Cursor c = myDataBase.query(true, "locations", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "" +
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.loc_type"}, "" +
 						"locations.name = '" + loc + "'", null, null, null, "locations.name", null);
 
 		c.moveToFirst();
@@ -496,6 +541,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int typeCol = c.getColumnIndex("loc_type");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -503,8 +549,11 @@ public class DBAdapter extends SQLiteOpenHelper {
 				String name = c.getString(nameCol);
 				String desc = c.getString(descCol);
 				String img = c.getString(imgCol);
+				String locType = c.getString(typeCol);
 				
-				return new Location(id, name, desc, img);
+				Location l = new Location(id, name, desc, img);
+				l.setlType(locType);
+				return l;
 			}
 		}
 		

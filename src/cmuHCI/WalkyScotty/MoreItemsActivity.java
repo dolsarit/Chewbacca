@@ -2,6 +2,7 @@ package cmuHCI.WalkyScotty;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import cmuHCI.WalkyScotty.entities.*;
 
@@ -73,6 +74,12 @@ public class MoreItemsActivity extends WSActivity implements OnItemClickListener
 				break;
 			case RESTAURANTS :
 				locs = adp.getRestaurants();
+				break;
+			case SERVICES:
+				locs = adp.getServices();
+				break;
+			case OTHER:
+				locs = adp.getOther();
 				break;
 			default:
 				locs = adp.getAllLocations();

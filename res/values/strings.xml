@@ -28,5 +28,6 @@
 	<string name="FoodHoursTitle">Hours</string>
 	<string name="BakerHallDetailsText">Details</string>
 	<string name="directions_list_steps_text">Steps</string>
+	<string name="crumb_restaurants">Restaurants</string>
     
 </resources>
