@@ -3,10 +3,6 @@
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	android:orientation="vertical">
 	<LinearLayout style="@style/breadcrumbLL">
-  		<TextView style="@style/breadcrumbMapText" />
-  		<TextView style="@style/breadcrumbArrow" />
-  		<TextView style="@style/breadcrumbBuildingsText" />
-  		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbText" android:id="@+id/buildingrooms_breadcrumb_building" />
   		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbRoomsText" />
