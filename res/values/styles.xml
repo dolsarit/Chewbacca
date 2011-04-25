@@ -123,6 +123,11 @@
 		<item name="android:background">@drawable/help</item>
 	</style>
 
+	<style name="myLLayout_ImgDetails">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">fill_parent</item>
+		<item name="android:orientation">vertical</item>
+	</style>
 
 	<!-- Style of LinearLayout for Buttons -->
 	<style name="myLLayout_Buttons">
