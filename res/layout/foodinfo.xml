@@ -21,7 +21,7 @@
 	<ScrollView android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:layout_weight="1">
 
-		<TextView android:id="@+id/BakerHallDes"
+		<TextView android:id="@+id/BakerHallDes" style="@style/description"
 			android:layout_width="fill_parent" android:layout_height="wrap_content" />
 
 	</ScrollView>
