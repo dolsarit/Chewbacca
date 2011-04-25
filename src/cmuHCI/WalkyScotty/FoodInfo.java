@@ -86,6 +86,9 @@ public class FoodInfo extends WSActivity{
 		TextView desc = (TextView) findViewById(R.id.BakerHallDes);
         desc.setText(loc.getDescription());
         
+        TextView nick = (TextView) findViewById(R.id.BuildingNick);
+        nick.setText(loc.getAbbreviation());
+        
         TextView hours = (TextView) findViewById(R.id.FoodHours);
         hours.setText(loc.getHours());
         

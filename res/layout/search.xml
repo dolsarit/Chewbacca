@@ -17,8 +17,8 @@
 	<TextView
   		android:layout_width="fill_parent"
   		android:layout_height="wrap_content"
-  		android:text="Quick Search"
-  		style="@style/subtitle" />
+  		android:text="QUICK SEARCH"
+  		style="@style/label" />
 	<TableLayout
 		android:layout_width="fill_parent"
   		android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
 	<TextView
   		android:layout_width="fill_parent"
   		android:layout_height="wrap_content"
-  		android:text="By Category"
+  		android:text="BY CATEGORY"
   		style="@style/label" />
   	<ExpandableListView
   		android:layout_width="fill_parent"

@@ -94,6 +94,9 @@ public class BakerInfo extends WSActivity{
 		TextView title = (TextView) findViewById(R.id.BakerHallText);
 		title.setText(loc.getName());
 		
+		TextView nick = (TextView) findViewById(R.id.BuildingNick);
+        nick.setText(loc.getAbbreviation());
+		
 		TextView desc = (TextView) findViewById(R.id.BakerHallDes);
         desc.setText(loc.getDescription());
         

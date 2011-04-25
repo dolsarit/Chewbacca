@@ -5,10 +5,12 @@
 	<color name="text_color">#000000</color>
 
 
-	<style name="WSTheme" parent="android:Theme.Light">
+	<style name="WSTheme" parent="android:Theme.NoTitleBar">
 		<item name="android:windowBackground">@color/activity_bg_color</item>
 		<item name="android:colorBackground">@color/activity_bg_color</item>
 		<item name="android:textColor">@color/text_color</item>
+		<item name="android:paddingLeft">2dp</item>
+		<item name="android:paddingRight">2dp</item>
 	</style>
 
 	<!-- Style of Title (Info Page) -->
@@ -41,13 +43,14 @@
 		<item name="android:textSize">12sp</item>
 		<item name="android:typeface">sans</item>
 		<item name="android:textColor">@color/text_color</item>
+		<item name="android:paddingBottom">2dp</item>
 	</style>
 
 	<style name="label" parent="@android:style/TextAppearance.Large">
 		<item name="android:layout_width">fill_parent</item>
 		<item name="android:layout_height">wrap_content</item>
 		<item name="android:gravity">left</item>
-		<item name="android:textSize">16sp</item>
+		<item name="android:textSize">12sp</item>
 		<item name="android:typeface">sans</item>
 		<item name="android:textColor">@color/text_color</item>
 	</style>

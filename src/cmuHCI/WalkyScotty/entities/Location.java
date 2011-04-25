@@ -7,14 +7,16 @@ public class Location implements Comparable<Location>{
 	private String name;
 	private String description;
 	private String img;
+	private String abbreviation;
 	
 	private LocationType lType;
 	
-	public Location(int ident, String nm, String desc, String image){
+	public Location(int ident, String nm, String desc, String image, String abbr){
 		id = ident;
 		name = nm;
 		description = desc;
 		img = image;
+		abbreviation = abbr;
 		lType = lType.BUILDINGS;
 	}
 	
@@ -36,6 +38,10 @@ public class Location implements Comparable<Location>{
 			this.lType = LocationType.ESCORTS;
 		if(lType.equals("Service"))
 			this.lType = LocationType.SERVICES;
+	}
+
+	public String getAbbreviation() {
+		return abbreviation;
 	}
 
 	public int getId() {

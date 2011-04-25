@@ -18,12 +18,16 @@
   		android:layout_height="wrap_content"
   		android:stretchColumns="1"
   		android:shrinkColumns="0">
-  		<TableRow>
-			<ImageView android:id="@+id/BakerHallPhoto"
-				android:layout_width="130dp" android:layout_height="130dp"/>
-			<LinearLayout style="@style/myLLayout_ImgDetails">
+  		<TableRow android:layout_height="130dp">
+			<ImageView android:id="@+id/BakerHallPhoto" android:scaleType="fitStart"
+				android:layout_width="130dp" android:layout_height="100dp"/>
+			<LinearLayout style="@style/myLLayout_ImgDetails" android:paddingLeft="10dp" android:paddingTop="0dp">
+				<TextView android:id="@+id/BuildingNickTitle" style="@style/label" android:text="@string/info_alternative_name"/>
+				<TextView android:id="@+id/BuildingNick" style="@style/description"/>
 				<TextView android:id="@+id/FoodHoursTitle" style="@style/label" android:text="@string/FoodHoursTitle"/>
 				<TextView android:id="@+id/FoodHours" style="@style/description"/>
+				<TextView android:id="@+id/FoodMenuTitle" style="@style/label" android:text="@string/food_menu_title"/>
+				<TextView android:id="@+id/FoodMenu" style="@style/description"/>
 			</LinearLayout>
 		</TableRow>
 	</TableLayout>

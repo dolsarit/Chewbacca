@@ -11,8 +11,8 @@ public class Building extends Location{
 
 	private ArrayList<Room> rooms;
 	
-	public Building(int ident, String nm, String desc, String image) {
-		super(ident, nm, desc, image);
+	public Building(int ident, String nm, String desc, String image, String abbr) {
+		super(ident, nm, desc, image, abbr);
 		// TODO Auto-generated constructor stub
 		rooms = new ArrayList<Room>();
 	}
