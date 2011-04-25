@@ -4,10 +4,6 @@
 	android:orientation="vertical">
 
 	<LinearLayout style="@style/breadcrumbLL">
-  		<TextView style="@style/breadcrumbMapText" />
-  		<TextView style="@style/breadcrumbArrow" />
-  		<TextView style="@style/breadcrumbSearchText" />
-  		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbDirectionsText" />
   		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbText" android:id="@+id/directionslist_breadcrumb_locations" />
@@ -52,15 +48,19 @@
 	<TextView android:layout_width="fill_parent"
 		android:layout_height="2dip"
 		android:background="#66666666" />
-	<TextView android:id="@+id/directions_list_steps_text"
+	<!-- <TextView android:id="@+id/directions_list_steps_text"
 			android:layout_width="fill_parent" style="@style/subtitle"
-			android:text="@string/directions_list_steps_text" android:layout_height="wrap_content"/>
+			android:text="@string/directions_list_steps_text" android:layout_height="wrap_content"/>  -->
 	<TextView android:id="@+id/directions_list_text"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:text="List of directions" android:layout_weight="1" />
-
-	<Button android:id="@+id/directions_list_goto_map"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="Get Map!" />
+		android:text="List of directions" android:layout_weight="0" />
+	<com.google.android.maps.MapView
+	    android:id="@+id/directions_mapview"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:clickable="true"
+	    android:apiKey="0HpVlXFsQwyHbtxqrBKKgJaPkT1dOVt9dyNgZHQ"
+	    android:layout_weight="0"
+	    android:layout_marginTop="20dp"/>
 
 </LinearLayout>
