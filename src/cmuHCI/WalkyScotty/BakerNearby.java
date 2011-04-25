@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import cmuHCI.WalkyScotty.entities.Location;
 import cmuHCI.WalkyScotty.util.MyDirectedGraph;
@@ -133,6 +135,7 @@ public class BakerNearby extends WSActivity{
                 image.setImageResource(mThumbIds[position % 2]);
                 //image.setLayoutParams(new GridView.LayoutParams(85, 85));
                 image.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                image.setLayoutParams(new LinearLayout.LayoutParams(130, 130));
                 image.setPadding(8, 8, 8, 8);
             } 
         	else {
