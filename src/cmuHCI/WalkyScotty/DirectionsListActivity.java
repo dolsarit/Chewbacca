@@ -59,7 +59,7 @@ public class DirectionsListActivity extends WSMapActivity {
 			points.add(p2);
 			points.add(p3);
 			
-			RouteOverlay overlay = new RouteOverlay(points);
+			RouteOverlay overlay = new RouteOverlay(points, this);
 			
 			List<Overlay> overlays = mapView.getOverlays();
 			overlays.clear();
