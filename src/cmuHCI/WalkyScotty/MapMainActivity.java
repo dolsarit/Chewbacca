@@ -35,21 +35,7 @@ public class MapMainActivity extends MapActivity {
         MapController mc = mapView.getController();
         mc.setCenter(new GeoPoint(40443110, -79943450)); // CMU Campus
         mc.setZoom(17); // Zoom just enough to see the entirety of main campus
-        
-		DBAdapter adp = new DBAdapter(this);
-		try {
-			adp.createDataBase();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		adp.openDataBase();
-		
-		adp.getRestaurants(); //Spits out an arraylist of buildings
-		
-		adp.close();
-		
-		
+        	
     }
     
     class RouteOverlay extends com.google.android.maps.Overlay {

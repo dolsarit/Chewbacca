@@ -9,8 +9,8 @@ import cmuHCI.WalkyScotty.DBAdapter;
 public class Room extends Location{
 	private Building building;
 	
-	public Room(int ident, String nm, String desc, String image) {
-		super(ident, nm, desc, image);
+	public Room(int ident, String nm, String desc, String image, String abbr) {
+		super(ident, nm, desc, image, abbr);
 		// TODO Auto-generated constructor stub
 	}
 	

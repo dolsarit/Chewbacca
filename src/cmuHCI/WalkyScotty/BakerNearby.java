@@ -77,7 +77,7 @@ public class BakerNearby extends WSActivity{
 		TextView bc = (TextView) findViewById(R.id.bakernearby_breadcrumb_building);
 		bc.setText(thisL.getName());
 			
-		locs = graph.outgoingNeighbors(new Location(locID, null, null, null));
+		locs = graph.outgoingNeighbors(new Location(locID, null, null, null, null));
 		
 		if(locs == null){
 			names = new String[0];

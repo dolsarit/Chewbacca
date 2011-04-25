@@ -171,7 +171,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public ArrayList<Building> getBuildings(){
 		ArrayList<Building> buildings = new ArrayList<Building>();
 		
-		Cursor c = myDataBase.query(true, "buildings JOIN locations ON (buildings.location_id = locations._id)", new String[]{"locations._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
+		Cursor c = myDataBase.query(true, "buildings JOIN locations ON (buildings.location_id = locations._id)", new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -179,6 +179,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int abbrCol = c.getColumnIndex("nick");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -187,8 +188,9 @@ public class DBAdapter extends SQLiteOpenHelper {
 					String name = c.getString(nameCol);
 					String desc = c.getString(descCol);
 					String img = c.getString(imgCol);
+					String abbr = c.getString(abbrCol);
 					
-					buildings.add(new Building(id, name, desc, img));
+					buildings.add(new Building(id, name, desc, img, abbr));
 				}
 				while(c.moveToNext());
 			}
@@ -200,7 +202,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public ArrayList<Room> getRooms(){
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
-		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", new String[]{"locations._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
+		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -208,6 +210,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int abbrCol = c.getColumnIndex("nick");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -216,8 +219,10 @@ public class DBAdapter extends SQLiteOpenHelper {
 					String name = c.getString(nameCol);
 					String desc = c.getString(descCol);
 					String img = c.getString(imgCol);
+					String abbr = c.getString(abbrCol);
 					
-					rooms.add(new Room(id, name, desc, img));
+					
+					rooms.add(new Room(id, name, desc, img, abbr));
 				}
 				while(c.moveToNext());
 			}
@@ -230,7 +235,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
 		Cursor c = myDataBase.query(true, "rooms JOIN locations ON (rooms.location_id = locations._id)", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "rooms.building_id = " + building.getId(), null, null, null, "locations.name", null);
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick"}, "rooms.building_id = " + building.getId(), null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -238,6 +243,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int abbrCol = c.getColumnIndex("nick");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -246,8 +252,9 @@ public class DBAdapter extends SQLiteOpenHelper {
 					String name = c.getString(nameCol);
 					String desc = c.getString(descCol);
 					String img = c.getString(imgCol);
+					String abbr = c.getString(abbrCol);
 					
-					rooms.add(new Room(id, name, desc, img));
+					rooms.add(new Room(id, name, desc, img, abbr));
 				}
 				while(c.moveToNext());
 			}
@@ -258,7 +265,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	
 	public Building getBuilding(int locationID){
 		Cursor c = myDataBase.query(true, "buildings JOIN locations ON (buildings.location_id = locations._id)", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, "locations._id = " + locationID, null, null, null, "locations.name", null);
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick"}, "locations._id = " + locationID, null, null, null, "locations.name", null);
 
 
 		c.moveToFirst();
@@ -267,6 +274,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int abbrCol = c.getColumnIndex("nick");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -274,8 +282,9 @@ public class DBAdapter extends SQLiteOpenHelper {
 				String name = c.getString(nameCol);
 				String desc = c.getString(descCol);
 				String img = c.getString(imgCol);
+				String abbr = c.getString(abbrCol);
 				
-				return new Building(id, name, desc, img);
+				return new Building(id, name, desc, img, abbr);
 			}
 		}
 		
@@ -288,7 +297,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	
 	public Restaurant getRestaurant(int locationID){
 		Cursor c = myDataBase.query(true, "restaurants JOIN locations ON (restaurants.location_id = locations._id)", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image, restaurants.hours, restaurants.menu"}, "locations._id = " + locationID, null, null, null, "locations.name", null);
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick", "restaurants.hours", "restaurants.menu"}, "locations._id = " + locationID, null, null, null, "locations.name", null);
 
 
 		c.moveToFirst();
@@ -297,6 +306,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int abbrCol = c.getColumnIndex("nick");
 		int hourCol = c.getColumnIndex("hours");
 		int menuCol = c.getColumnIndex("menu"); 
 		
@@ -306,10 +316,11 @@ public class DBAdapter extends SQLiteOpenHelper {
 				String name = c.getString(nameCol);
 				String desc = c.getString(descCol);
 				String img = c.getString(imgCol);
+				String abbr = c.getString(abbrCol);
 				String hours = c.getString(hourCol);
 				String menu = c.getString(menuCol);
 				
-				return new Restaurant(id, name, desc, img, hours, menu);
+				return new Restaurant(id, name, desc, img, abbr, hours, menu);
 			}
 		}
 		
@@ -320,7 +331,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 		
 		Cursor c = myDataBase.query(true, "restaurants JOIN locations ON (restaurants.location_id = locations._id)", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image",
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick",
 				"restaurants.hours", "restaurants.menu"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
@@ -329,6 +340,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int abbrCol = c.getColumnIndex("nick");
 		int hourCol = c.getColumnIndex("hours");
 		int menuCol = c.getColumnIndex("menu");
 		
@@ -339,10 +351,11 @@ public class DBAdapter extends SQLiteOpenHelper {
 					String name = c.getString(nameCol);
 					String desc = c.getString(descCol);
 					String img = c.getString(imgCol);
+					String abbr = c.getString(abbrCol);
 					String hours = c.getString(hourCol);
 					String menu = c.getString(menuCol);
 					
-					restaurants.add(new Restaurant(id, name, desc, img, hours, menu));
+					restaurants.add(new Restaurant(id, name, desc, img, abbr,hours, menu));
 				}
 				while(c.moveToNext());
 			}
@@ -355,7 +368,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Service> services = new ArrayList<Service>();
 		
 		Cursor c = myDataBase.query(true, "services JOIN locations ON (services.location_id = locations._id)", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image"}, null, null, null, null, "locations.name", null);
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -363,6 +376,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int abbrCol = c.getColumnIndex("nick");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -371,8 +385,9 @@ public class DBAdapter extends SQLiteOpenHelper {
 					String name = c.getString(nameCol);
 					String desc = c.getString(descCol);
 					String img = c.getString(imgCol);
+					String abbr = c.getString(abbrCol);
 					
-					services.add(new Service(id, name, desc, img));
+					services.add(new Service(id, name, desc, img, abbr));
 				}
 				while(c.moveToNext());
 			}
@@ -385,7 +400,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Shuttle> shuttles = new ArrayList<Shuttle>();
 		
 		Cursor c = myDataBase.query(true, "shuttles JOIN locations ON (shuttles.location_id = locations._id)", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image",
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick",
 				"shuttles.hours", "shuttles.stops"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
@@ -394,6 +409,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int abbrCol = c.getColumnIndex("nick");
 		int hourCol = c.getColumnIndex("hours");
 		int stopCol = c.getColumnIndex("stops");
 		
@@ -404,10 +420,11 @@ public class DBAdapter extends SQLiteOpenHelper {
 					String name = c.getString(nameCol);
 					String desc = c.getString(descCol);
 					String img = c.getString(imgCol);
+					String abbr = c.getString(abbrCol);
 					String stops = c.getString(stopCol);
 					String hours = c.getString(hourCol);
 					
-					shuttles.add(new Shuttle(id, name, desc, img, stops, hours));
+					shuttles.add(new Shuttle(id, name, desc, img, abbr,stops, hours));
 				}
 				while(c.moveToNext());
 			}
@@ -420,7 +437,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Escort> escorts = new ArrayList<Escort>();
 		
 		Cursor c = myDataBase.query(true, "escorts JOIN locations ON (escorts.location_id = locations._id)", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image",
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick",
 				"escorts.hours", "escorts.stops"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
@@ -429,6 +446,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int nameCol = c.getColumnIndex("name");
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
+		int abbrCol = c.getColumnIndex("nick");
 		int hourCol = c.getColumnIndex("hours");
 		int stopCol = c.getColumnIndex("stops");
 		
@@ -439,10 +457,11 @@ public class DBAdapter extends SQLiteOpenHelper {
 					String name = c.getString(nameCol);
 					String desc = c.getString(descCol);
 					String img = c.getString(imgCol);
+					String abbr = c.getString(abbrCol);
 					String stops = c.getString(stopCol);
 					String hours = c.getString(hourCol);
 					
-					escorts.add(new Escort(id, name, desc, img, stops, hours));
+					escorts.add(new Escort(id, name, desc, img, abbr, stops, hours));
 				}
 				while(c.moveToNext());
 			}
@@ -465,7 +484,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public Location getLocation(int locID){
 		
 		Cursor c = myDataBase.query(true, "locations", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.loc_type"}, "" +
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick", "locations.loc_type"}, "" +
 						"locations._id = " + locID, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
@@ -475,6 +494,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
 		int typeCol = c.getColumnIndex("loc_type");
+		int abbrCol = c.getColumnIndex("nick");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -483,8 +503,9 @@ public class DBAdapter extends SQLiteOpenHelper {
 				String desc = c.getString(descCol);
 				String img = c.getString(imgCol);
 				String locType = c.getString(typeCol);
+				String abbr = c.getString(abbrCol);
 				
-				Location l = new Location(id, name, desc, img);
+				Location l = new Location(id, name, desc, img, abbr);
 				l.setlType(locType);
 				
 				return l;
@@ -498,7 +519,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		ArrayList<Location> locations = new ArrayList<Location>();
 		
 		Cursor c = myDataBase.query(true, "locations", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.loc_type"}, null, null, null, null, "locations.name", null);
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick", "locations.loc_type"}, null, null, null, null, "locations.name", null);
 
 		c.moveToFirst();
 		
@@ -507,6 +528,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
 		int typeCol = c.getColumnIndex("loc_type");
+		int abbrCol = c.getColumnIndex("nick");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -516,8 +538,9 @@ public class DBAdapter extends SQLiteOpenHelper {
 					String desc = c.getString(descCol);
 					String img = c.getString(imgCol);
 					String locType = c.getString(typeCol);
+					String abbr = c.getString(abbrCol);
 					
-					Location l = new Location(id, name, desc, img);
+					Location l = new Location(id, name, desc, img, abbr);
 					l.setlType(locType);
 					
 					locations.add(l);
@@ -532,7 +555,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public Location getLocation(String loc){
 		
 		Cursor c = myDataBase.query(true, "locations", 
-				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.loc_type"}, "" +
+				new String[]{"locations._id", "locations.name","locations.description","locations.image", "locations.nick", "locations.loc_type"}, "" +
 						"locations.name = '" + loc + "'", null, null, null, "locations.name", null);
 
 		c.moveToFirst();
@@ -542,6 +565,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 		int descCol = c.getColumnIndex("description");
 		int imgCol = c.getColumnIndex("image");
 		int typeCol = c.getColumnIndex("loc_type");
+		int abbrCol = c.getColumnIndex("nick");
 		
 		if(c!=null){
 			if(c.isFirst()){
@@ -550,8 +574,9 @@ public class DBAdapter extends SQLiteOpenHelper {
 				String desc = c.getString(descCol);
 				String img = c.getString(imgCol);
 				String locType = c.getString(typeCol);
+				String abbr = c.getString(abbrCol);
 				
-				Location l = new Location(id, name, desc, img);
+				Location l = new Location(id, name, desc, img, abbr);
 				l.setlType(locType);
 				return l;
 			}
@@ -590,8 +615,8 @@ public class DBAdapter extends SQLiteOpenHelper {
 					int loc_2 = c.getInt(loc2Col);
 					int dist = c.getInt(distCol);
 					
-					Location l1 = new Location(loc_1, null, null, null);
-					Location l2 = new Location(loc_2, null, null, null);
+					Location l1 = new Location(loc_1, null, null, null, null);
+					Location l2 = new Location(loc_2, null, null, null, null);
 					
 					graph.addVertex(l1);
 					graph.addVertex(l2);
