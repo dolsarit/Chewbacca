@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,6 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.Toast;
 import cmuHCI.WalkyScotty.entities.Building;
-import cmuHCI.WalkyScotty.entities.Escort;
 import cmuHCI.WalkyScotty.entities.Location;
 import cmuHCI.WalkyScotty.entities.LocationType;
 import cmuHCI.WalkyScotty.entities.Restaurant;
@@ -51,6 +51,12 @@ public class SearchActivity extends WSActivity {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.search);
+		
+		Intent intent = getIntent();
+	    if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+	      String query = intent.getStringExtra(SearchManager.QUERY);
+	      doSearch(query);
+	    }
 		
 		// Set up browse menus
 		ExpandableListView blv = (ExpandableListView) findViewById(R.id.browse_list);
