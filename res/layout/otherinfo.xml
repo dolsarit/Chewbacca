@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="vertical">
+	
+		<LinearLayout style="@style/breadcrumbLL">
+	  		<TextView style="@style/breadcrumbBuildingsText" android:text="@string/crumbs_others"/>
+	  		<TextView style="@style/breadcrumbArrow" />
+	  		<TextView style="@style/breadcrumbText" android:id="@+id/bakerinfo_breadcrumb_building" />
+	  	</LinearLayout>
+	  	
+		<TextView android:id="@+id/BakerHallText" style="@style/title" />
+	
+		<TableLayout
+			android:layout_width="fill_parent"
+	  		android:layout_height="wrap_content"
+	  		android:stretchColumns="1"
+	  		android:shrinkColumns="0">
+  		<TableRow android:layout_height="130dp">
+			<ImageView android:id="@+id/BakerHallPhoto" android:scaleType="fitStart"
+				android:layout_width="130dp" android:layout_height="100dp"/>
+			<LinearLayout style="@style/myLLayout_ImgDetails" android:paddingLeft="10dp" android:paddingTop="0dp">
+				<TextView android:id="@+id/BuildingNickTitle" style="@style/label" android:text="@string/info_alternative_name"/>
+				<TextView android:id="@+id/BuildingNick" style="@style/description"/>
+			</LinearLayout>
+		</TableRow>
+	</TableLayout>
+	
+		<TextView android:id="@+id/BakerHallDetailsText" style="@style/subtitle" android:text="@string/BakerHallDetailsText"/>
+		<ScrollView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_weight="1">
+	
+			<TextView android:id="@+id/BakerHallDes" style="@style/description"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" />
+	
+		</ScrollView>
+		<LinearLayout style="@style/myLLayout_Buttons">
+		<Button android:id="@+id/BakerHall_Direction_Button"
+			android:text="@string/directions_btn" style="@style/myButton" />
+		<Button android:id="@+id/BakerHall_Nearby_Button" android:text="@string/nearby_btn"
+			style="@style/myButton" />
+	</LinearLayout>
+	</LinearLayout>
+	
+

@@ -154,6 +154,18 @@ public class SearchActivity extends WSActivity {
 			case RESTAURANTS:
 				i = new Intent(this, FoodInfo.class);
 				break;
+			case SHUTTLES:
+				i = new Intent(this, ShuttleInfo.class);
+				break;
+			case ESCORTS:
+				i = new Intent(this, EscortInfo.class);
+				break;
+			case ROOMS:
+				i = new Intent(this, RoomInfo.class);
+				break;
+			case SERVICES:
+				i = new Intent(this, OtherInfo.class);
+				break;
 			default:
 				i = new Intent(this, BakerInfo.class);
 		}

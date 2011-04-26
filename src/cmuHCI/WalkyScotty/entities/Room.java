@@ -12,6 +12,7 @@ public class Room extends Location{
 	public Room(int ident, String nm, String desc, String image, String abbr) {
 		super(ident, nm, desc, image, abbr);
 		// TODO Auto-generated constructor stub
+		this.setlType("Room");
 	}
 	
 	public void loadBuilding(Context mContext) throws Exception{

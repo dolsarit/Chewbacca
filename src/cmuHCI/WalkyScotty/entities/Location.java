@@ -41,6 +41,8 @@ public class Location implements Comparable<Location>{
 	}
 
 	public String getAbbreviation() {
+		if(abbreviation == null || abbreviation.equals(""))
+			return "No alternative names";
 		return abbreviation;
 	}
 
