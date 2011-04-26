@@ -4,8 +4,6 @@
 	android:orientation="vertical">
 
 	<LinearLayout style="@style/breadcrumbLL">
-  		<TextView style="@style/breadcrumbMapText" />
-  		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbBuildingsText" android:text="@string/crumb_restaurants"/>
   		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbText" android:id="@+id/bakerinfo_breadcrumb_building" />

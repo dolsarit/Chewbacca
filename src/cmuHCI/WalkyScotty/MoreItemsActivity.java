@@ -44,7 +44,7 @@ public class MoreItemsActivity extends WSActivity implements OnItemClickListener
         bc.setText(locType.toString().charAt(0) + locType.toString().substring(1).toLowerCase()); //<-- this is so dumb...
         
         TextView title = (TextView) findViewById(R.id.more_items_title);
-        title.setText(locType.toString());
+        title.setText(locType.toString().charAt(0) + locType.toString().substring(1).toLowerCase());
 
     }
 	
