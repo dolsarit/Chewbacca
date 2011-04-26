@@ -38,5 +38,6 @@
 	<string name="crumbs_others">Others</string>
 	<string name="buildings_rooms_text">ROOMS</string>
 	<string name="buildings_all_rooms"><u>all rooms</u></string>
+	<string name="rooms_building_title">BUILDING</string>
     
 </resources>

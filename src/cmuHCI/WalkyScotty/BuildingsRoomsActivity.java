@@ -44,7 +44,7 @@ public class BuildingsRoomsActivity extends WSActivity{
 			e.printStackTrace();
 		}
 		adp.openDataBase();
-		b = adp.getBuilding(getIntent().getIntExtra("lID", 1));
+		b = adp.getBuilding(getIntent().getIntExtra("bID", 1));
 		
 		if(b != null){
 			//TODO This should load the name of the location into building so it can get loaded into the breadcrumb

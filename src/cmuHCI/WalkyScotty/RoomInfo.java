@@ -5,6 +5,8 @@ import java.io.IOException;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -79,6 +81,8 @@ public class RoomInfo extends WSActivity{
 		
 		adp.close();
 		
+		loc.loadBuilding(this); //load building for room
+		
 		TextView title = (TextView) findViewById(R.id.BakerHallText);
 		title.setText(loc.getName());
 		
@@ -87,6 +91,24 @@ public class RoomInfo extends WSActivity{
 		
 		TextView desc = (TextView) findViewById(R.id.BakerHallDes);
         desc.setText(loc.getDescription());
+        
+        TextView building = (TextView) findViewById(R.id.Building);
+        SpannableString content = new SpannableString(loc.getBuilding().getName());
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+        building.setText(content);
+        
+        final int buildingId = loc.getBuilding().getId();
+        
+        building.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				Intent i = new Intent(RoomInfo.this, BakerInfo.class);
+				i.putExtra("lID", buildingId);
+				RoomInfo.this.startActivity(i);
+			}
+        	
+        });
         
         TextView crumb = (TextView) findViewById(R.id.bakerinfo_breadcrumb_building);
         crumb.setText(loc.getName());

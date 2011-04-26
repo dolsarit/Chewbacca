@@ -15,7 +15,7 @@ public class Room extends Location{
 		this.setlType("Room");
 	}
 	
-	public void loadBuilding(Context mContext) throws Exception{
+	public void loadBuilding(Context mContext){
 		DBAdapter adp = new DBAdapter(mContext);
 		try {
 			adp.createDataBase();
@@ -26,12 +26,15 @@ public class Room extends Location{
 		
 		adp.openDataBase();
 
-		adp.getBuildings();
+		building = adp.getBuildingForRoom(this.getId());
 		
 		adp.close();
 		
-		throw new Exception("Not implemented yet...");
 	
+	}
+
+	public Building getBuilding() {
+		return building;
 	}
 	
 }

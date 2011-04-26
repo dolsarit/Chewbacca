@@ -321,8 +321,27 @@ public class DBAdapter extends SQLiteOpenHelper {
 		return null;
 	}
 	
-	public Building getBuildingForRoom(){
-		return null;
+	public Building getBuildingForRoom(int locationID){
+		
+		int buildingID = -1;
+		
+		Cursor c = myDataBase.query(true, "buildings JOIN rooms ON (rooms.building_id = buildings._id) JOIN locations ON (rooms.location_id = locations._id) ", new String[]{"buildings.location_id"}, "locations._id = " + locationID, null, null, null, "locations.name", null);
+
+		c.moveToFirst();
+		
+		int idCol = c.getColumnIndex("location_id");
+		
+		if(c!=null){
+			if(c.isFirst()){
+				do{
+					buildingID = c.getInt(idCol);
+				}
+				while(c.moveToNext());
+			}
+			return getBuilding(buildingID);
+		}
+		
+		return null;		
 	}
 	
 	public Restaurant getRestaurant(int locationID){
