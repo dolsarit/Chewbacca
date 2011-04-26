@@ -41,7 +41,7 @@ public class MoreItemsActivity extends WSActivity implements OnItemClickListener
 
 		
 		TextView bc = (TextView) findViewById(R.id.moreitems_breadcrumb_category);
-        bc.setText(locType.toString());
+        bc.setText(locType.toString().charAt(0) + locType.toString().substring(1).toLowerCase()); //<-- this is so dumb...
         
         TextView title = (TextView) findViewById(R.id.more_items_title);
         title.setText(locType.toString());
@@ -50,7 +50,7 @@ public class MoreItemsActivity extends WSActivity implements OnItemClickListener
 	
 	@Override
 	public void onItemClick(AdapterView arg0,View v,int position, long arg3) {
-			navigateDetailsPage(LOCATIONS[position].getId());
+			navigateDetailsPage(LOCATIONS[position]);
 	}
 	
 	private ArrayList<? extends Location> getLocationList(LocationType type){
@@ -99,12 +99,32 @@ public class MoreItemsActivity extends WSActivity implements OnItemClickListener
 		return locs;
 	}
 	
-	private void navigateDetailsPage(int locID){
-		if(locID <= 0)
+	private void navigateDetailsPage(Location loc){
+		if(loc.getId() <= 0)
 			throw new RuntimeException("Bad Location ID");
 		
-		Intent i = new Intent(this, BakerInfo.class);
-		i.putExtra("lID", locID);
+		Intent i;
+		switch(loc.getlType()){
+			case RESTAURANTS:
+				i = new Intent(this, FoodInfo.class);
+				break;
+			case SHUTTLES:
+				i = new Intent(this, ShuttleInfo.class);
+				break;
+			case ESCORTS:
+				i = new Intent(this, EscortInfo.class);
+				break;
+			case ROOMS:
+				i = new Intent(this, RoomInfo.class);
+				break;
+			case SERVICES:
+				i = new Intent(this, OtherInfo.class);
+				break;
+			default:
+				i = new Intent(this, BakerInfo.class);
+		}
+		
+		i.putExtra("lID", loc.getId());
 		this.startActivity(i);
 	}
 	

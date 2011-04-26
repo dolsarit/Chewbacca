@@ -1,6 +1,9 @@
 package cmuHCI.WalkyScotty;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Set;
 
 import android.content.Context;
@@ -19,12 +22,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import cmuHCI.WalkyScotty.entities.Location;
 import cmuHCI.WalkyScotty.util.MyDirectedGraph;
+import cmuHCI.WalkyScotty.util.WeightComparator;
 import cmuHCI.WalkyScotty.util.WeightedEdge;
 
 public class BakerNearby extends WSActivity{
 	private MyDirectedGraph<Location, WeightedEdge<Location>> graph;
 	private String[] names;
 	private Location[] locations;
+	private int[] distances;
 	
     /** Called when the activity is first created. */
     @Override
@@ -61,6 +66,7 @@ public class BakerNearby extends WSActivity{
     
     public void loadNearby(int locID){
     	Set<Location> locs;
+    	Set<WeightedEdge<Location>> edges;
     	
     	DBAdapter adp = new DBAdapter(this);
 		try {
@@ -77,22 +83,31 @@ public class BakerNearby extends WSActivity{
 		TextView bc = (TextView) findViewById(R.id.bakernearby_breadcrumb_building);
 		bc.setText(thisL.getName());
 			
-		locs = graph.outgoingNeighbors(new Location(locID, null, null, null, null));
+		//locs = graph.outgoingNeighbors(new Location(locID, null, null, null, null));
 		
-		if(locs == null){
+		edges = graph.outgoingEdges(new Location(locID, null, null, null, null));
+		
+		if(edges == null){
 			names = new String[0];
 			locations = new Location[0];
 		}
 		else{
 		
-			names = new String[locs.size()];
-			locations = new Location[locs.size()];
+			names = new String[edges.size()];
+			locations = new Location[edges.size()];
+			distances = new int[edges.size()];
+			
+			
+			ArrayList<WeightedEdge<Location>> sEdges = new ArrayList<WeightedEdge<Location>>(edges);
+			
+			Collections.sort(sEdges, new WeightComparator());
 			
 			int i = 0;
-			for(Location l : locs){
-				Location h = adp.getLocation(l.getId());
+			for(WeightedEdge<Location> l : sEdges){
+				Location h = adp.getLocation(l.dest().getId());
 				names[i] = h.getName();
 				locations[i] = h;
+				distances[i] = l.weight();
 				i++;
 			}
 		}
@@ -131,8 +146,11 @@ public class BakerNearby extends WSActivity{
         		TextView text = (TextView) v.findViewById(R.id.icon_text);
                 text.setText(names[position]);
                 
+                TextView dist = (TextView) v.findViewById(R.id.icon_dist);
+                dist.setText("(" + distances[position] + " feet)");
+                
                 ImageView image = (ImageView)v.findViewById(R.id.icon_image);
-                image.setImageResource(mThumbIds[position % 2]);
+                image.setImageResource(DBAdapter.getImage(locations[position].getId()));
                 //image.setLayoutParams(new GridView.LayoutParams(85, 85));
                 image.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 image.setLayoutParams(new LinearLayout.LayoutParams(130, 130));

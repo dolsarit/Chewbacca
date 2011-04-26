@@ -4,9 +4,7 @@
 	android:orientation="vertical">
 
 	<LinearLayout style="@style/breadcrumbLL">
-  		<TextView style="@style/breadcrumbMapText" />
-  		<TextView style="@style/breadcrumbArrow" />
-  		<TextView style="@style/breadcrumbBuildingsText" android:text="@string/crumb_restaurants"/>
+  		<TextView style="@style/breadcrumbBuildingsText" android:text="@string/crumbs_shuttles"/>
   		<TextView style="@style/breadcrumbArrow" />
   		<TextView style="@style/breadcrumbText" android:id="@+id/bakerinfo_breadcrumb_building" />
   	</LinearLayout>
@@ -24,13 +22,14 @@
 			<LinearLayout style="@style/myLLayout_ImgDetails" android:paddingLeft="10dp" android:paddingTop="0dp">
 				<TextView android:id="@+id/BuildingNickTitle" style="@style/label" android:text="@string/info_alternative_name"/>
 				<TextView android:id="@+id/BuildingNick" style="@style/description"/>
-				<TextView android:id="@+id/FoodMenuTitle" style="@style/label" android:text="@string/food_menu_title"/>
-				<TextView android:id="@+id/FoodMenu" style="@style/description"/>
+				<TextView android:id="@+id/EscortStopsTitle" style="@style/label" android:text="@string/escorts_stops_title"/>
+				<TextView android:id="@+id/EscortStops" style="@style/description"/>
 			</LinearLayout>
 		</TableRow>
 	</TableLayout>
 	<TextView android:id="@+id/FoodHoursTitle" style="@style/subtitle" android:text="@string/FoodHoursTitle"/>
 	<TextView android:id="@+id/FoodHours" style="@style/description"/>
+	
 	<TextView android:id="@+id/BakerHallDetailsText" style="@style/subtitle" android:text="@string/BakerHallDetailsText"/>
 	<ScrollView android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:layout_weight="1">

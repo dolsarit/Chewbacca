@@ -10,5 +10,8 @@
 	<TextView android:id="@+id/icon_text" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="TextView"
 		android:gravity="center_horizontal" android:textColorHighlight="#656565" />
+	<TextView android:id="@+id/icon_dist" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="" style="@style/description"
+		android:gravity="center_horizontal" android:textColorHighlight="#656565" />
 
 </LinearLayout>
