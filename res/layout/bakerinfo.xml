@@ -23,6 +23,8 @@
 			<LinearLayout style="@style/myLLayout_ImgDetails" android:paddingLeft="10dp" android:paddingTop="0dp">
 				<TextView android:id="@+id/BuildingNickTitle" style="@style/label" android:text="@string/info_alternative_name"/>
 				<TextView android:id="@+id/BuildingNick" style="@style/description"/>
+				<TextView android:id="@+id/BuildingRoomsTitle" style="@style/label" android:text="@string/buildings_rooms_text"/>
+				<TextView android:id="@+id/BuildingRooms" style="@style/description" android:text="@string/buildings_all_rooms"/>
 			</LinearLayout>
 		</TableRow>
 	</TableLayout>
@@ -38,8 +40,8 @@
 		<LinearLayout style="@style/myLLayout_Buttons">
 		<Button android:id="@+id/BakerHall_Direction_Button"
 			android:text="@string/directions_btn" style="@style/myButton" />
-		<Button android:id="@+id/BakerHall_Rooms_Button" android:text="@string/rooms_btn"
-			style="@style/myButton" />
+		<!--  <Button android:id="@+id/BakerHall_Rooms_Button" android:text="@string/rooms_btn"
+			style="@style/myButton" />-->
 		<Button android:id="@+id/BakerHall_Nearby_Button" android:text="@string/nearby_btn"
 			style="@style/myButton" />
 	</LinearLayout>

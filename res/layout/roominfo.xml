@@ -23,6 +23,8 @@
 			<LinearLayout style="@style/myLLayout_ImgDetails" android:paddingLeft="10dp" android:paddingTop="0dp">
 				<TextView android:id="@+id/BuildingNickTitle" style="@style/label" android:text="@string/info_alternative_name"/>
 				<TextView android:id="@+id/BuildingNick" style="@style/description"/>
+				<TextView android:id="@+id/BuildingTitle" style="@style/label"/>
+				<TextView android:id="@+id/Building" style="@style/description"/>
 			</LinearLayout>
 		</TableRow>
 	</TableLayout>

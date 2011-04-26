@@ -171,7 +171,7 @@ public class MyDirectedGraph<V extends Comparable<V>,E extends Edge<V>> implemen
 			throw new NullPointerException();
 		
 		if (!myGraph.containsKey(vertex))
-			throw new IllegalArgumentException();
+			return null;
 		
 		return new HashSet<E>(myGraph.get(vertex).values());
 	}
