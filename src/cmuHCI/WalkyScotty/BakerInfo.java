@@ -49,7 +49,8 @@ public class BakerInfo extends WSActivity{
         	
         });
         
-        Button rooms = (Button) findViewById(R.id.BakerHall_Rooms_Button);
+        //Button rooms = (Button) findViewById(R.id.BakerHall_Rooms_Button);
+        TextView rooms = (TextView) findViewById(R.id.BuildingRooms);
         
         rooms.setOnClickListener(new OnClickListener() {
 

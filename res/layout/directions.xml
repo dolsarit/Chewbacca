@@ -9,7 +9,7 @@
   	</LinearLayout>
 	<TextView android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="Directions" style="@style/title" />
-	<TextView android:text="From:" android:layout_width="wrap_content"
+	<TextView android:text="FROM" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" style="@style/subtitle" />
 	<AutoCompleteTextView android:layout_height="wrap_content"
 		android:id="@+id/directions_from" android:layout_width="match_parent"
@@ -17,13 +17,13 @@
 		android:text="Baker Hall" />
 	<!-- android:editable="false" -->
 	<TextView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:text="To:" style="@style/subtitle" />
+		android:layout_height="wrap_content" android:text="TO" style="@style/subtitle" />
 	<AutoCompleteTextView android:layout_height="wrap_content"
 		android:id="@+id/directions_to" android:text="Merson Courtyard"
 
 		android:layout_width="match_parent" />
 	<!-- android:editable="false" -->
 	<Button android:text="Go" android:layout_height="wrap_content"
-		android:id="@+id/directions_go" android:layout_width="wrap_content" />
+		android:id="@+id/directions_go" android:layout_width="100dip"/>
 </LinearLayout>
 

@@ -90,6 +90,7 @@ public class BakerNearby extends WSActivity{
 		if(edges == null){
 			names = new String[0];
 			locations = new Location[0];
+			distances = new int[0];
 		}
 		else{
 		

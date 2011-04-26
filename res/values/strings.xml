@@ -36,5 +36,7 @@
 	<string name="crumbs_shuttles">Shuttles</string>
 	<string name="crumbs_rooms">Rooms</string>
 	<string name="crumbs_others">Others</string>
+	<string name="buildings_rooms_text">ROOMS</string>
+	<string name="buildings_all_rooms"><u>all rooms</u></string>
     
 </resources>
